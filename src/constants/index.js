@@ -207,7 +207,7 @@ export const SPEAKERS = [
     id: 2,
     fullName: "Sourabh Haldar",
     jobTitle: "CISO, Risk & Governance",
-    company: "Standard Chattered",
+    company: "Standard Chartered",
     image: "/images/speakers/Sourabh-haldar.jfif",
     isExclusive: true,
   },
@@ -296,7 +296,7 @@ export const AGENDA_DAY_1 = [
       {
         name: "Sourabh Haldar",
         image: "/images/speakers/Sourabh-haldar.jfif",
-        role: "CISO, Risk & Governance - Standard Chattered",
+        role: "CISO, Risk & Governance - Standard Chartered",
       }
     ],
     description: "Accountability in AI for Business: Governance, Ethics, and Risk Management",
