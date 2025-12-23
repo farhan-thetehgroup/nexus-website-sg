@@ -226,6 +226,22 @@ export const SPEAKERS = [
     company: "Standard Chartered",
     image: "/images/speakers/Tien-Nguyen-Long.webp",
     isExclusive: true,
+  },
+  {
+    id: 5,
+    fullName: "Justin Ong",
+    jobTitle: "APAC Chief Information Security Officer",
+    company: "Panasonic Asia Pacific Pte Ltd",
+    image: "/images/speakers/Justin-Ong.png",
+    isExclusive: true,
+  },
+  {
+    id: 6,
+    fullName: "Anna Cheong",
+    jobTitle: "Director, Technology & Transformation",
+    company: "Deloitte",
+    image: "/images/speakers/Anna-Cheong.png",
+    isExclusive: true,
   }
 ];
 
@@ -276,7 +292,7 @@ export const AGENDA_DAY_1 = [
   {
     id: 5,
     time: "10:00 AM - 04:00 PM",
-    title: "One on One Meeting",
+    title: "One on One Business Meetings",
     type: "meeting",
   },
   {
@@ -330,6 +346,13 @@ export const AGENDA_DAY_1 = [
   {
     id: 10,
     time: "12:10 PM",
+    speakers: [
+      {
+        name: "Justin Ong",
+        image: "/images/speakers/Justin-Ong.png",
+        role: "APAC Chief Information Security Officer - Panasonic Asia Pacific Pte Ltd",
+      },
+    ],
     title: "OT/IT",
     description: "Building Smarter Workflows with AI-Powered Intelligence/ Building Trusted Digital Ecosystems: AI, Standards, and Cross-Border Collaboration",
     type: "Session",
@@ -338,6 +361,13 @@ export const AGENDA_DAY_1 = [
     id: 10,
     time: "12:40 PM",
     title: "Cloud",
+    speakers: [
+      {
+        name: "Anna Cheong",
+        image: "/images/speakers/Anna-Cheong.png",
+        role: "Director, Technology & Transformation - Deloitte",
+      },
+    ],
     description: "Scaling Enterprise Technology in 2026: Cloud and Data",
     type: "Session",
   },
@@ -365,7 +395,7 @@ export const AGENDA_DAY_1 = [
   {
     id: 13,
     time: "02:00 PM",
-    title: "SOC and MDR",
+    title: "SOC and MDR / From AI Strategy to Scaled Products: Building Trust, Growth, and Resilience in FinTech Platforms",
     type: "session",
   },
 
