@@ -129,7 +129,7 @@ export const HeroSection = ({ containerVariants }) => {
       <div 
         className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden bg-gradient-to-br from-brand-800 via-tech-green-900 to-brand-800"
         style={{
-          backgroundImage: `url('/images/background/Singapore(2).png')`,
+          backgroundImage: `url('/images/background/Nexus-SG-Hero.webp')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -139,7 +139,6 @@ export const HeroSection = ({ containerVariants }) => {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-800/80 via-tech-green-900/80 to-brand-800/80" />
         
         {/* Animated Background Elements */}
-        <GridBackground />
         <FloatingParticles />
 
         {/* Glowing Orbs */}
@@ -159,9 +158,9 @@ export const HeroSection = ({ containerVariants }) => {
             transition: "transform 0.3s ease-out",
           }}>
           {/* Logo with Advanced Animation */}
-          <div className="relative inline-block mb-6 sm:mb-8">
+          <div className="relative inline-block mb-2 pb-8">
             <div className="absolute inset-0 bg-emerald-400 blur-3xl opacity-30 animate-pulse" />
-            <div className="relative">
+            <div className="relative overflow-visible">
               <div className="w-[18rem] h-[18rem] sm:w-[22rem] sm:h-[18rem] md:w-[28rem] md:h-[22rem] lg:w-[32rem] lg:h-[15rem] mx-auto relative">
                 {/* Logo Container */}
                 <div className="absolute inset-0 flex items-center justify-center transition-transform duration-500 scale-105 sm:scale-110">
@@ -179,16 +178,31 @@ export const HeroSection = ({ containerVariants }) => {
                   </div>
                 </div>
               </div>
+              {/* Singapore Text */}
+              <motion.div
+                className="relative z-10 -mt-6 sm:-mt-8 md:-mt-10 lg:-mt-12"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}>
+                <div className="flex flex-col items-center gap-2 sm:gap-3">
+                  
+                  {/* Location */}
+                  <div className="relative">
+                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-wider drop-shadow-[0_0_25px_rgba(16,185,129,0.4)]" 
+                        style={{ 
+                          background: 'linear-gradient(to right, #ffffff, #10b981, #ffffff)',
+                          WebkitBackgroundClip: 'text',
+                          WebkitTextFillColor: 'transparent',
+                          backgroundClip: 'text'
+                        }}>
+                      SINGAPORE | 11 MARCH 2026
+                    </h1>
+                  </div>
+                  
+                </div>
+              </motion.div>
             </div>
           </div>
-
-          {/* Typewriter Heading */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-12 font-light text-gray-100 min-h-[4rem]">
-            <span className="inline-block">
-              {typedText}
-              <span className="animate-blink ml-1 text-emerald-400">|</span>
-            </span>
-          </h2>
 
           {/* Tech Cards with 3D Effect */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 px-4">
@@ -199,10 +213,10 @@ export const HeroSection = ({ containerVariants }) => {
 
           {/* CTA Buttons with Advanced Effects */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center mb-20 sm:mb-24 md:mb-32"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center mb-7 sm:mb-8 md:mb-10"
             initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            whileInView={{ opacity: 1, y: 0 }}>
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}>
             {/* Register Now Button */}
             <motion.div
               className="relative inline-block group"
@@ -235,7 +249,7 @@ export const HeroSection = ({ containerVariants }) => {
               </button>
             </motion.div>
 
-            {/* Be Our Sponsor Button */}
+            {/* View Agenda Button */}
             <motion.div
               className="relative inline-block group"
               whileHover={{ scale: 1.05 }}>
@@ -245,16 +259,21 @@ export const HeroSection = ({ containerVariants }) => {
               {/* Main Button */}
               <button
                 className="relative bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 px-8 sm:px-10 py-4 sm:py-5 rounded-full font-bold text-base sm:text-lg shadow-2xl transition-all duration-300 transform hover:scale-110 group w-full sm:w-auto"
-                onClick={() => (window.location.href = MAILTO_URL)}>
+                onClick={() => {
+                  const agendaSection = document.getElementById('agenda');
+                  if (agendaSection) {
+                    agendaSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}>
                 <span className="relative z-10 flex items-center gap-3 justify-center">
-                  Be Our Sponsor
+                  View Agenda
                   <svg
-                    className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300"
+                    className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      d="M19 9l-7 7-7-7"
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
@@ -267,6 +286,13 @@ export const HeroSection = ({ containerVariants }) => {
               </button>
             </motion.div>
           </motion.div>
+          {/* Typewriter Heading */}
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-12 font-light text-gray-100 min-h-[4rem]">
+            <span className="inline-block">
+              {typedText}
+              <span className="animate-blink ml-1 text-emerald-400">|</span>
+            </span>
+          </h2>
         </div>
 
         <style>{`
@@ -275,11 +301,6 @@ export const HeroSection = ({ containerVariants }) => {
             25% { transform: translateY(-20px) translateX(10px); }
             50% { transform: translateY(-40px) translateX(-10px); }
             75% { transform: translateY(-20px) translateX(5px); }
-          }
-
-          @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
           }
 
           @keyframes spin-slow {

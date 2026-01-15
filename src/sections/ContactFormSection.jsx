@@ -234,7 +234,7 @@ const ContactForm = () => {
               whileInView={{ scale: 1 }}>
               <Mail className="w-4 h-4 text-cyan-400" />
               <span className="text-cyan-400 font-medium text-sm">
-                Sponsorship Inquiry
+              Ask us about Nexus APAC 2026
               </span>
             </motion.div>
 
@@ -381,7 +381,7 @@ const ContactForm = () => {
                 ].join(" ")}
                 name="message"
                 onChange={handleChange}
-                placeholder="Tell us about your sponsorship interests and goals..."
+                placeholder="Tell us about your inquiry..."
                 required
                 rows={6}
                 value={formData.message}
@@ -522,7 +522,7 @@ export default function ContactFormSection() {
             transition={{ duration: 0.8, delay: 0.3 }}
             whileInView={{ opacity: 1, y: 0 }}>
             <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">
-              Ask for Sponsorship
+              Contact Us
             </span>
           </motion.h2>
 
@@ -531,8 +531,7 @@ export default function ContactFormSection() {
             initial={{ opacity: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             whileInView={{ opacity: 1 }}>
-            Connect with us to discuss partnership opportunities for AI Nexus
-            APAC
+            Contact us for inquiries about Nexus APAC Singapore 2026
           </motion.p>
         </motion.div>
 

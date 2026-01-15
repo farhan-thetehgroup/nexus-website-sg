@@ -34,7 +34,7 @@ export const HomePage = () => {
       <AdvancedNavbar scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
       {/* <PastSponsorSection /> */}
-      <WhySponsorSection />
+      {/* <WhySponsorSection /> */}
       <AudienceSection />
       <EventFormatSection />
       <SpeakersSection />

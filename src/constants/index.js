@@ -173,18 +173,17 @@ export const PARTNERS = [
 ];
 
 export const LOCATION_DATA = {
-  title: "Pullman Ciawi Vimala Hills Resort ",
-  address: "Jl. Raya Puncak, Gadog, Megamendung , 16770 Bogor Indonesia",
-  date: "4-5 February 2026",
-  room: "Keluak Room, Vimala Ballroom, Vimala Ballroom Foyer",
+  title: "The Singapore EDITION ",
+  address: "38 Cuscaden Rd, Singapura 249731",
+  date: "11th March 2026",
   // image: "/images/venue/jakarta.webp", // Main image displayed in the section
   images: [
-    { src: "/images/venue/pullman-entrance.jpg", alt: "Pullman Ciawi Vimala Hills Resort - Entrance" },
-    { src: "/images/venue/pullman-ballroom.jpg", alt: "Pullman Ballroom" },
-    { src: "/images/venue/pullman-pool.jpg", alt: "Pullman Pool" },
-    { src: "/images/venue/pullman-bedroom.jpg", alt: "Pullman Bedroom" },
+    { src: "/images/venue/The-Singapore-Edition.jpg", alt: "The Singapore Edition Hotel - Entrance" },
+    { src: "/images/venue/The-Singapore-EDITION-Ballroom.jpg", alt: "The Singapore Edition Ballroom" },
+    { src: "/images/venue/The-Singapore-EDITION-Ballroom-2.jpg", alt: "The Singapore Edition Ballroom 2" },
+    { src: "/images/venue/The-Singapore-EDITION-Pool.jpg", alt: "The Singapore Edition Pool" },
   ], // Gallery images for modal view
-  googleMapsUrl: "https://maps.app.goo.gl/z156Fo2Rybj6x2GD9",
+  googleMapsUrl: "https://maps.app.goo.gl/Msocc5DXosDUrhHNA",
   additionalInfo: "Parking available on-site. Free Wi-Fi provided.",
 };
 
@@ -221,14 +220,6 @@ export const SPEAKERS = [
   },
   {
     id: 4,
-    fullName: "Tien Nguyet Long",
-    jobTitle: "Executive Director - Head of AI Safety and Standards",
-    company: "Standard Chartered",
-    image: "/images/speakers/Tien-Nguyen-Long.webp",
-    isExclusive: true,
-  },
-  {
-    id: 6,
     fullName: "Anna Cheong",
     jobTitle: "Director, Technology & Transformation",
     company: "Deloitte",
@@ -326,25 +317,11 @@ export const AGENDA_DAY_1 = [
     time: "11:40 AM",
     title: "AI - DATA",
     type: "session",
-    speakers: [
-      {
-        name: "Tien Nguyet Long",
-        image: "/images/speakers/Tien-Nguyen-Long.webp",
-        role: "Executive Director - Head of AI Safety and Standards - Standard Chartered",
-      },
-    ],
     description: "Building Smarter Workflows with AI-Powered Intelligence/ Building Trusted Digital Ecosystems: AI, Standards, and Cross-Border Collaboration",
   },
   {
     id: 10,
     time: "12:10 PM",
-    title: "OT/IT",
-    description: "Building Smarter Workflows with AI-Powered Intelligence/ Building Trusted Digital Ecosystems: AI, Standards, and Cross-Border Collaboration",
-    type: "Session",
-  },
-  {
-    id: 10,
-    time: "12:40 PM",
     title: "Cloud",
     speakers: [
       {
@@ -358,12 +335,19 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 11,
+    time: "12:40 PM",
+    title: "OT/IT",
+    description: "Building Smarter Workflows with AI-Powered Intelligence/ Building Trusted Digital Ecosystems: AI, Standards, and Cross-Border Collaboration",
+    type: "Session",
+  },
+  {
+    id: 12,
     time: "01:10 PM",
     title: "Break Lunch",
     type: "break",
   },
   {
-    id: 12,
+    id: 13,
     time: "01:40 PM",
     title: "Demo Sessions",
     type: "demo",
@@ -378,20 +362,20 @@ export const AGENDA_DAY_1 = [
     ]
   },
   {
-    id: 13,
+    id: 14,
     time: "02:00 PM",
     title: "SOC and MDR / From AI Strategy to Scaled Products: Building Trust, Growth, and Resilience in FinTech Platforms",
     type: "session",
   },
 
   {
-    id: 14,
+    id: 15,
     time: "02:30 PM",
     title: "Threat",
     type: "session",
   },
   {
-    id: 15,
+    id: 16,
     time: "04:30 PM",
     title: "Break Time & End of Event",
     type: "break",

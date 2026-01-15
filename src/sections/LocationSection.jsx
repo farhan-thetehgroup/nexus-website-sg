@@ -70,13 +70,13 @@ export const LocationSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}>
-            Venue information will be announced soon
+            Join us at an exceptional venue in the heart of Singapore
           </motion.p>
         </motion.div>
 
-        {/* Location Card */}
+        {/* Location Card with Gallery on Left */}
         <motion.div
-          className="relative group max-w-5xl mx-auto"
+          className="relative group max-w-7xl mx-auto"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, delay: 0.4 }}>
@@ -93,69 +93,120 @@ export const LocationSection = () => {
             {/* Top glow orb */}
             <div className="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-emerald-500/30 to-cyan-500/30 rounded-full blur-3xl opacity-20 group-hover:opacity-40 transition-opacity duration-500" />
 
-            {/* Coming Soon Content */}
-            <div className="relative p-12 md:p-16 lg:p-20 flex flex-col items-center justify-center min-h-[500px]">
-              <motion.div
-                className="text-center space-y-8 max-w-2xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.8, delay: 0.5 }}>
-                
-                {/* Coming Soon Badge */}
+            {/* Two Column Layout */}
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Gallery on Left - 4 Photo Grid */}
+              {location.images && location.images.length > 0 && (
                 <motion.div
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 backdrop-blur-sm mb-4"
-                  initial={{ scale: 0, rotate: -180 }}
-                  animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-                  transition={{ type: "spring", stiffness: 200, delay: 0.6 }}>
-                  <Clock className="w-5 h-5 text-emerald-400" />
-                  <span className="text-emerald-400 font-semibold text-sm md:text-base">
-                    Coming Soon
-                  </span>
+                  className="relative p-4"
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}>
+                  <div className="grid grid-cols-2 gap-2 h-full min-h-[500px] lg:min-h-[600px]">
+                    {location.images.slice(0, 4).map((image, idx) => (
+                      <div
+                        key={idx}
+                        className="relative overflow-hidden rounded-lg cursor-pointer group"
+                        onClick={() => {
+                          setGalleryIndex(idx);
+                          setShowGallery(true);
+                        }}>
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                      </div>
+                    ))}
+                  </div>
                 </motion.div>
+              )}
 
-                {/* Main Title */}
-                <motion.h3
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 py-4 md:py-6 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ duration: 0.8, delay: 0.7 }}>
-                  Venue Details Coming Soon
-                </motion.h3>
-
-                {/* Location Indicator */}
+              {/* Venue Details on Right */}
+              <div className="relative p-8 md:p-12 lg:p-16 flex flex-col justify-center">
                 <motion.div
-                  className="flex items-center justify-center gap-3 p-6 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/20 backdrop-blur-sm"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}>
-                  <MapPin className="w-6 h-6 text-emerald-400 flex-shrink-0" />
-                  <p className="text-xl md:text-2xl font-semibold text-white">
-                    Singapore
-                  </p>
-                </motion.div>
+                  className="space-y-6"
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}>
+                  
+                  {/* Date Badge */}
+                  {location.date && (
+                    <motion.div
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 backdrop-blur-sm"
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
+                      transition={{ type: "spring", stiffness: 200, delay: 0.7 }}>
+                      <Calendar className="w-5 h-5 text-emerald-400" />
+                      <span className="text-emerald-400 font-semibold text-sm md:text-base">
+                        {location.date}
+                      </span>
+                    </motion.div>
+                  )}
 
-                {/* Description */}
-                <motion.p
-                  className="text-gray-300 text-lg md:text-xl leading-relaxed mt-6"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ duration: 0.8, delay: 0.9 }}>
-                  We are currently finalizing the venue details for this exceptional event. 
-                  <br className="hidden md:block" />
-                  <span className="text-emerald-400 font-medium">We will update this information soon.</span>
-                </motion.p>
+                  {/* Main Title */}
+                  <motion.h3
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent"
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}>
+                    {location.title}
+                  </motion.h3>
 
-                {/* Decorative Elements */}
-                <motion.div
-                  className="flex items-center justify-center gap-2 mt-8"
-                  initial={{ opacity: 0 }}
-                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                  transition={{ duration: 0.8, delay: 1.0 }}>
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" style={{ animationDelay: '0.2s' }} />
-                  <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" style={{ animationDelay: '0.4s' }} />
+                  {/* Location Details */}
+                  <div className="space-y-4">
+                    {/* Address */}
+                    <motion.div
+                      className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/20 backdrop-blur-sm"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.6, delay: 0.9 }}>
+                      <MapPin className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
+                      <div>
+                        <p className="text-emerald-400 font-semibold mb-1">Address</p>
+                        <p className="text-white text-lg">
+                          {location.address}
+                        </p>
+                      </div>
+                    </motion.div>
+
+                    {/* Additional Info */}
+                    {location.additionalInfo && (
+                      <motion.div
+                        className="flex items-start gap-4 p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/20 backdrop-blur-sm"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.6, delay: 1.0 }}>
+                        <DoorOpen className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-1" />
+                        <div>
+                          <p className="text-emerald-400 font-semibold mb-1">Facilities</p>
+                          <p className="text-white text-lg">
+                            {location.additionalInfo}
+                          </p>
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* Action Button */}
+                  {location.googleMapsUrl && (
+                    <motion.div
+                      className="pt-4"
+                      initial={{ opacity: 0 }}
+                      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                      transition={{ duration: 0.8, delay: 1.1 }}>
+                      <button
+                        onClick={handleGoogleMapsClick}
+                        className="group w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 rounded-lg font-semibold text-gray-900 flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/50">
+                        <MapPin className="w-5 h-5" />
+                        View on Google Maps
+                        <ExternalLink className="w-4 h-4" />
+                      </button>
+                    </motion.div>
+                  )}
                 </motion.div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Bottom gradient bar */}
@@ -170,8 +221,8 @@ export const LocationSection = () => {
         </motion.div>
       </div>
 
-      {/* Gallery Modal - Disabled for coming soon */}
-      {/* <AnimatePresence>
+      {/* Gallery Modal */}
+      <AnimatePresence>
         {showGallery && location.images && location.images.length > 0 && (
           <GalleryModal
             backdropGradient="from-brand-900/80 via-tech-green-700/70 to-tech-green-900"
@@ -181,7 +232,7 @@ export const LocationSection = () => {
             onIndexChange={setGalleryIndex}
           />
         )}
-      </AnimatePresence> */}
+      </AnimatePresence>
     </section>
   );
 };
