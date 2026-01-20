@@ -35,9 +35,9 @@ export const HomePage = () => {
       <HeroSection scrollToSection={scrollToSection} />
       {/* <PastSponsorSection /> */}
       {/* <WhySponsorSection /> */}
-      <AudienceSection />
-      <EventFormatSection />
+      {/* <AudienceSection /> */}
       <SpeakersSection />
+      <EventFormatSection />
       <AgendaSection />
       <LocationSection />
       <ContactFormSection />

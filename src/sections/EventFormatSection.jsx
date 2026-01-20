@@ -53,23 +53,23 @@ const eventFormats = [
     color: "from-cyan-400 to-cyan-600",
     attendees: "20-30",
   },
-  {
-    id: 3,
-    icon: MessageCircle,
-    title: "Interactive Workshop",
-    description:
-      "An immersive learning experience where participants engage in hands-on activities and collaborative problem-solving sessions.",
-    features: [
-      "Practical exercises",
-      "Group activities",
-      "Expert guidance",
-      "Takeaway materials",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
-    color: "from-brand-400 to-brand-600",
-    attendees: "15-20",
-  },
+  // {
+  //   id: 3,
+  //   icon: MessageCircle,
+  //   title: "Interactive Workshop",
+  //   description:
+  //     "An immersive learning experience where participants engage in hands-on activities and collaborative problem-solving sessions.",
+  //   features: [
+  //     "Practical exercises",
+  //     "Group activities",
+  //     "Expert guidance",
+  //     "Takeaway materials",
+  //   ],
+  //   image:
+  //     "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop",
+  //   color: "from-brand-400 to-brand-600",
+  //   attendees: "15-20",
+  // },
   {
     id: 4,
     icon: Mic2,
@@ -87,23 +87,23 @@ const eventFormats = [
     color: "from-teal-400 to-teal-600",
     attendees: "300",
   },
-  {
-    id: 5,
-    icon: Coffee,
-    title: "Exhibition Hall",
-    description:
-      "Explore cutting-edge solutions and connect with innovators in an open exhibition space designed for networking and discovery.",
-    features: [
-      "Networking breaks",
-      "Solution showcases",
-      "Interactive demos",
-      "Informal discussions",
-    ],
-    image:
-      "https://images.unsplash.com/photo-1632383380175-812d44ec112b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
-    color: "from-tech-green-500 to-teal-600",
-    attendees: "Open",
-  },
+  // {
+  //   id: 5,
+  //   icon: Coffee,
+  //   title: "Exhibition Hall",
+  //   description:
+  //     "Explore cutting-edge solutions and connect with innovators in an open exhibition space designed for networking and discovery.",
+  //   features: [
+  //     "Networking breaks",
+  //     "Solution showcases",
+  //     "Interactive demos",
+  //     "Informal discussions",
+  //   ],
+  //   image:
+  //     "https://images.unsplash.com/photo-1632383380175-812d44ec112b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880",
+  //   color: "from-tech-green-500 to-teal-600",
+  //   attendees: "Open",
+  // },
 ];
 
 const containerVariants = {
@@ -214,7 +214,7 @@ export const EventFormatSection = () => {
           variants={containerVariants}
           viewport={{ once: false, amount: 0.2 }}
           whileInView="visible">
-          <div className="grid gap-8 md:grid-cols-3 mb-8">
+          <div className="grid gap-6 md:grid-cols-3 mb-6">
             {eventFormats.slice(0, 3).map((format, index) => {
               const IconComponent = format.icon;
               return (

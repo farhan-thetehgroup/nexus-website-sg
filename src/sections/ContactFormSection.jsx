@@ -480,7 +480,7 @@ export default function ContactFormSection() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center py-32 px-4 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden"
       id="contact"
       ref={containerRef}>
       <motion.div
@@ -495,10 +495,10 @@ export default function ContactFormSection() {
 
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           style={{ y: headerY, opacity: headerOpacity }}>
           <motion.div
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 border border-cyan-500/40 mb-6 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-emerald-500/20 border border-cyan-500/40 mb-4 backdrop-blur-sm"
             initial={{ scale: 0, rotate: -180 }}
             transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
             whileInView={{ scale: 1, rotate: 0 }}>
@@ -507,7 +507,7 @@ export default function ContactFormSection() {
           </motion.div>
 
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl font-bold mb-4"
             initial={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             whileInView={{ opacity: 1, y: 0 }}>

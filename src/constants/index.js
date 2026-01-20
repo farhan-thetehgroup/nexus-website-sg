@@ -2,9 +2,9 @@ export const MENU_ITEMS = [
   // { name: "Sponsors", id: "sponsors" },
   // { name: "Why", id: "why" },
   // { name: "Tour", id: "tours" },
-  { name: "Target Audience", id: "audience" },
-  { name: "Event Formats", id: "event-formats" },
+  // { name: "Target Audience", id: "audience" },
   { name: "Speakers", id: "speakers" },
+  { name: "Event Formats", id: "event-formats" },
   { name: "Agenda", id: "agenda" },
   { name: "Location", id: "location" },
   { name: "Contact", id: "contact" },
@@ -14,7 +14,7 @@ export const BRAND_LOGO = "/images/brand-logo/nexus-green.svg";
 export const BRAND_LOGO_WHITE = "/images/brand-logo/nexus-teh-white.svg";
 export const SPEED_PARTNERS_MARQUEE = 300000; // kecepatan scroll (ms)
 export const LINK_REGISTER =
-  "https://event.thetehgroup.com/-nexus-singapore-2026/overview?token=ZT1kNmZmMTFiMC1iZTFhLTQ0NjEtOWY3OS05MjczMmY0MmY4ZjU%3d";
+  "https://event.thetehgroup.com/-nexus-singapore-2026/registration/?token=ZT1kNmZmMTFiMC1iZTFhLTQ0NjEtOWY3OS05MjczMmY0MmY4ZjUmcmM9QkZSSDlEWVNCTA%3D%3D";
 export const TEASER_URL =
   "https://cyberattack-event.com/wp-content/uploads/2024/10/CA-MY-EVENT-DRAFT-2.mp4";
 

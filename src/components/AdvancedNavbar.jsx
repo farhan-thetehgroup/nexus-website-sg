@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-import { BRAND_LOGO_WHITE, MENU_ITEMS } from "../constants";
+import { BRAND_LOGO_WHITE, MENU_ITEMS, LINK_REGISTER } from "../constants";
 
 export const AdvancedNavbar = ({ scrollToSection }) => {
   const { scrollY } = useScroll();
@@ -148,7 +148,7 @@ export const AdvancedNavbar = ({ scrollToSection }) => {
             {/* CTA Button - Desktop */}
             <div className="hidden lg:block">
               <a
-                href="https://event.thetehgroup.com/-nexus-singapore-2026/overview?token=ZT1kNmZmMTFiMC1iZTFhLTQ0NjEtOWY3OS05MjczMmY0MmY4ZjU%3d"
+                href={LINK_REGISTER}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative px-6 py-2.5 rounded-full font-semibold text-sm overflow-hidden inline-block">
@@ -163,7 +163,7 @@ export const AdvancedNavbar = ({ scrollToSection }) => {
 
                 {/* Button Text */}
                 <span className="relative flex items-center gap-2 text-gray-900">
-                  Join Us
+                  Register Now
                   <svg
                     className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                     fill="none"

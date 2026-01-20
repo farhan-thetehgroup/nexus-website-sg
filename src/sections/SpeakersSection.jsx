@@ -16,7 +16,7 @@ const SpeakerCard = ({ speaker, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`group relative ${isExclusive ? 'sm:col-span-2 lg:col-span-2 xl:col-span-2' : ''}`}>
+      className="group relative">
       {/* Enhanced glow effect for exclusive speakers */}
       <div className={`absolute -inset-1 bg-gradient-to-r ${isExclusive ? 'from-purple-500/70 via-emerald-500/70 to-cyan-500/70' : 'from-emerald-500/50 to-cyan-500/50'} rounded-2xl blur-xl ${isExclusive ? 'opacity-30' : 'opacity-0'} group-hover:opacity-75 transition-opacity duration-500`} />
       
@@ -47,7 +47,7 @@ const SpeakerCard = ({ speaker, index }) => {
         {/* Content */}
         <div className={`relative ${isExclusive ? 'p-8' : 'p-6'} flex flex-col items-center text-center`}>
           {/* Speaker Image */}
-          <div className="relative mb-6">
+          <div className="relative mb-4">
             {/* Enhanced glow ring for exclusive */}
             <div className={`absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full blur-lg ${isExclusive ? 'opacity-30' : 'opacity-0'} group-hover:opacity-50 transition-opacity duration-500`} />
             
@@ -77,7 +77,7 @@ const SpeakerCard = ({ speaker, index }) => {
           </p>
 
           {/* Company - larger for exclusive */}
-          <p className={`text-gray-400 ${isExclusive ? 'text-base' : 'text-sm'} mb-4 group-hover:text-gray-300 transition-colors duration-300`}>
+          <p className={`text-gray-400 ${isExclusive ? 'text-base' : 'text-sm'} mb-2 group-hover:text-gray-300 transition-colors duration-300`}>
             {speaker.company}
           </p>
         </div>
@@ -92,7 +92,7 @@ export const SpeakersSection = () => {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center py-32 px-4 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden"
       id="speakers"
       ref={containerRef}>
       
@@ -109,13 +109,13 @@ export const SpeakersSection = () => {
       <div className="max-w-7xl mx-auto relative z-10 w-full">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8 }}>
           
           <motion.div
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-blue-500/20 border border-emerald-500/40 mb-6 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-blue-500/20 border border-emerald-500/40 mb-4 backdrop-blur-sm"
             initial={{ scale: 0, rotate: -180 }}
             animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
             transition={{ type: "spring", stiffness: 200, delay: 0.2 }}>
@@ -126,7 +126,7 @@ export const SpeakersSection = () => {
           </motion.div>
 
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-5xl md:text-7xl font-bold mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.3 }}>
@@ -145,7 +145,7 @@ export const SpeakersSection = () => {
         </motion.div>
 
         {/* Speakers Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {SPEAKERS.map((speaker, index) => (
             <SpeakerCard
               key={speaker.id || index}
