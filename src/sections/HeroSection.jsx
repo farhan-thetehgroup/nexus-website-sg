@@ -15,9 +15,9 @@ const AnimatedSection = ({ id, children }) => {
   );
 };
 
-// Floating Particles Component
+// Simplified Floating Particles Component
 const FloatingParticles = () => {
-  const particles = Array.from({ length: 30 });
+  const particles = Array.from({ length: 10 }); // Reduced from 30 to 10
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -29,8 +29,8 @@ const FloatingParticles = () => {
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${3 + Math.random() * 4}s`,
-            opacity: Math.random() * 0.5 + 0.3,
+            animationDuration: `${4 + Math.random() * 2}s`, // Slower animation
+            opacity: Math.random() * 0.3 + 0.2, // Lower opacity
           }}
         />
       ))}
@@ -38,7 +38,7 @@ const FloatingParticles = () => {
   );
 };
 
-// Grid Background Component
+// Simplified Grid Background Component - static for better performance
 const GridBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -46,11 +46,11 @@ const GridBackground = () => {
         className="absolute inset-0"
         style={{
           backgroundImage: `
-          linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px)
+          linear-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(16, 185, 129, 0.08) 1px, transparent 1px)
         `,
           backgroundSize: "50px 50px",
-          animation: "gridMove 20s linear infinite",
+          // Removed animation for better performance
         }}
       />
     </div>
@@ -127,7 +127,7 @@ export const HeroSection = ({ containerVariants }) => {
   return (
     <AnimatedSection containerVariants={containerVariants} id="hero">
       <div 
-        className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden bg-gradient-to-br from-brand-800 via-tech-green-900 to-brand-800"
+        className="relative min-h-screen flex items-center justify-center pt-12 px-4 overflow-hidden bg-gradient-to-br from-brand-800 via-tech-green-900 to-brand-800"
         style={{
           backgroundImage: `url('/images/background/Nexus-SG-Hero.webp')`,
           backgroundSize: 'cover',

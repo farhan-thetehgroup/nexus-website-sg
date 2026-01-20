@@ -37,12 +37,12 @@ const ThreeFooterBackground = () => {
       mountRef.current.clientWidth,
       mountRef.current.clientHeight
     );
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Reduced for better performance
     mountRef.current.appendChild(renderer.domElement);
 
-    // Wave particles
+    // Simplified wave particles - reduced count
     const particlesGeometry = new THREE.BufferGeometry();
-    const particleCount = 1200;
+    const particleCount = 200; // Reduced from 1200 to 200
     const posArray = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
 
@@ -67,10 +67,10 @@ const ThreeFooterBackground = () => {
     );
 
     const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.02,
+      size: 0.03,
       vertexColors: true,
       transparent: true,
-      opacity: 0.6,
+      opacity: 0.5,
       blending: THREE.AdditiveBlending,
     });
 
@@ -80,42 +80,23 @@ const ThreeFooterBackground = () => {
     );
     scene.add(particlesMesh);
 
-    // Animated grid
-    const gridSize = 20;
-    const gridGeometry = new THREE.PlaneGeometry(10, 10, gridSize, gridSize);
-    const gridMaterial = new THREE.MeshBasicMaterial({
-      color: 0x10b981,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.15,
-    });
-    const grid = new THREE.Mesh(gridGeometry, gridMaterial);
-    grid.rotation.x = -Math.PI / 2;
-    grid.position.y = -1;
-    scene.add(grid);
+    // Removed animated grid for better performance
 
     let time = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-      time += 0.01;
+      time += 0.005; // Slower animation
 
-      const positions = particlesGeometry.attributes.position.array;
-      for (let i = 1; i < positions.length; i += 3) {
-        positions[i] = Math.sin(positions[i - 1] * 0.5 + time) * 0.5;
+      // Simplified particle animation - only update every 3rd frame
+      if (Math.floor(time * 100) % 3 === 0) {
+        const positions = particlesGeometry.attributes.position.array;
+        for (let i = 1; i < positions.length; i += 9) { // Update fewer particles
+          positions[i] = Math.sin(positions[i - 1] * 0.5 + time) * 0.3;
+        }
+        particlesGeometry.attributes.position.needsUpdate = true;
       }
-      particlesGeometry.attributes.position.needsUpdate = true;
 
-      const gridPositions = gridGeometry.attributes.position.array;
-      for (let i = 0; i < gridPositions.length; i += 3) {
-        const x = gridPositions[i];
-        const y = gridPositions[i + 1];
-        gridPositions[i + 2] =
-          Math.sin(x * 0.5 + time) * 0.3 + Math.cos(y * 0.5 + time) * 0.3;
-      }
-      gridGeometry.attributes.position.needsUpdate = true;
-
-      particlesMesh.rotation.y += 0.0005;
-      grid.rotation.z += 0.0003;
+      particlesMesh.rotation.y += 0.0003;
 
       renderer.render(scene, camera);
     };
@@ -245,7 +226,7 @@ export const FooterSection = () => {
         <ThreeFooterBackground />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}

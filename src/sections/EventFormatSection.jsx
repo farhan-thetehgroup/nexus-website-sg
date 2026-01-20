@@ -110,26 +110,25 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.08, delayChildren: 0.1 }, // Reduced delays
   },
 };
 
 const itemVariants = {
-  hidden: { y: 30, opacity: 0 },
+  hidden: { y: 20, opacity: 0 }, // Reduced movement
   visible: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", stiffness: 100, damping: 15 },
+    transition: { duration: 0.4, ease: "easeOut" }, // Simpler transition
   },
 };
 
 const cardVariants = {
-  hidden: { scale: 0.95, opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 }, // Reduced movement, removed scale
   visible: {
-    scale: 1,
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 120, damping: 15 },
+    transition: { duration: 0.4, ease: "easeOut" }, // Simpler transition
   },
 };
 
@@ -139,25 +138,25 @@ export const EventFormatSection = () => {
 
   return (
     <section
-      className="relative overflow-hidden py-20 md:py-28"
+      className="relative overflow-hidden py-12 md:py-16"
       id="event-formats">
       <motion.div
         animate={{
-          x: [0, 30, 0],
-          y: [0, -30, 0],
-          scale: [1, 1.1, 1],
+          x: [0, 20, 0],
+          y: [0, -20, 0],
+          scale: [1, 1.05, 1],
         }}
-        className="absolute top-20 left-10 h-72 w-64 rounded-full opacity-10 blur-3xl bg-tech-green-400"
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-20 left-10 h-72 w-64 rounded-full opacity-8 blur-3xl bg-tech-green-400"
+        transition={{ duration: 30, repeat: Infinity, ease: "easeInOut" }} // Slower animation
       />
       <motion.div
         animate={{
-          x: [0, -30, 0],
-          y: [0, 30, 0],
-          scale: [1, 1.2, 1],
+          x: [0, -20, 0],
+          y: [0, 20, 0],
+          scale: [1, 1.1, 1],
         }}
-        className="absolute right-10 bottom-20 h-80 w-80 rounded-full opacity-10 blur-3xl bg-cyan-400"
-        transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-10 bottom-20 h-80 w-80 rounded-full opacity-8 blur-3xl bg-cyan-400"
+        transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }} // Slower animation
       />
 
       <div className="absolute inset-0 opacity-5">
@@ -176,13 +175,13 @@ export const EventFormatSection = () => {
           className="mb-16 text-center"
           initial="hidden"
           variants={containerVariants}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }} // Once only, lower threshold
           whileInView="visible">
           <motion.div
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/40 mb-6 backdrop-blur-sm"
-            initial={{ scale: 0, rotate: -180 }}
-            transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-            whileInView={{ scale: 1, rotate: 0 }}>
+            initial={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }} // Simpler transition
+            whileInView={{ opacity: 1, scale: 1 }}>
             <Calendar className="w-5 h-5 text-purple-400" />
             <span className="text-purple-400 font-semibold">
               Diverse Experience
@@ -191,9 +190,10 @@ export const EventFormatSection = () => {
 
           <motion.h2
             className="text-5xl md:text-7xl font-bold mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            whileInView={{ opacity: 1, y: 0 }}>
+            initial={{ opacity: 0, y: 15 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }} // Faster, simpler
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}>
             <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-tech-green-400 bg-clip-text text-transparent">
               The Event Format
             </span>
@@ -202,8 +202,9 @@ export const EventFormatSection = () => {
           <motion.p
             className="text-xl text-gray-400 max-w-3xl mx-auto"
             initial={{ opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            whileInView={{ opacity: 1 }}>
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }} // Faster, simpler
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}>
             Multiple engagement opportunities designed to maximize value and
             networking
           </motion.p>
@@ -212,7 +213,7 @@ export const EventFormatSection = () => {
         <motion.div
           initial="hidden"
           variants={containerVariants}
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.15 }} // Once only, lower threshold
           whileInView="visible">
           <div className="grid gap-6 md:grid-cols-3 mb-6">
             {eventFormats.slice(0, 3).map((format, index) => {
@@ -225,7 +226,7 @@ export const EventFormatSection = () => {
                   onMouseEnter={() => setHoveredCard(format.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                   variants={cardVariants}
-                  whileHover={{ y: -12, scale: 1.02 }}>
+                  whileHover={{ y: -8, scale: 1.01 }}>
                   <motion.div
                     animate={{
                       boxShadow:
@@ -233,25 +234,25 @@ export const EventFormatSection = () => {
                           "0 20px 60px rgba(16, 185, 129, 0.4)"
                         : "0 10px 30px rgba(0, 0, 0, 0.3)",
                     }}
-                    className="relative h-full overflow-hidden rounded-2xl bg-brand-700/40 backdrop-blur-sm shadow-xl border-2 border-tech-green-400/20 hover:border-tech-green-400/60 transition-all duration-500">
+                    className="relative h-full overflow-hidden rounded-2xl bg-brand-700/40 backdrop-blur-sm shadow-xl border-2 border-tech-green-400/20 hover:border-tech-green-400/60 transition-all duration-300">
                     <div className="relative h-64 overflow-hidden">
                       <motion.img
                         alt={format.title}
                         animate={{
-                          scale: hoveredCard === format.id ? 1.15 : 1,
+                          scale: hoveredCard === format.id ? 1.1 : 1,
                         }}
                         className="h-full w-full object-cover"
                         src={format.image}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/60 to-transparent" />
 
                       <motion.div
                         animate={{
-                          rotate: hoveredCard === format.id ? 360 : 0,
+                          rotate: hoveredCard === format.id ? 180 : 0,
                         }}
                         className="absolute top-4 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-tech-green-400/90 shadow-lg backdrop-blur-sm border-2 border-white"
-                        transition={{ duration: 0.6 }}>
+                        transition={{ duration: 0.4, ease: "easeOut" }}>
                         <span className="text-brand-900 text-lg font-bold">
                           {index + 1}
                         </span>
@@ -259,12 +260,10 @@ export const EventFormatSection = () => {
 
                       <motion.div
                         animate={{
-                          rotate:
-                            hoveredCard === format.id ? [0, -10, 10, 0] : 0,
-                          scale: hoveredCard === format.id ? 1.1 : 1,
+                          scale: hoveredCard === format.id ? 1.05 : 1,
                         }}
                         className={`absolute top-4 left-4 rounded-full bg-gradient-to-br p-3 ${format.color} text-white shadow-xl border-2 border-white/50`}
-                        transition={{ duration: 0.5 }}>
+                        transition={{ duration: 0.3, ease: "easeOut" }}>
                         <IconComponent className="h-5 w-5" />
                       </motion.div>
 
@@ -289,37 +288,22 @@ export const EventFormatSection = () => {
                       </p>
                       <div className="mb-4 space-y-2">
                         {format.features.slice(0, 2).map((f, idx) => (
-                          <motion.div
+                          <div
                             className="flex items-center gap-2 text-xs text-gray-300"
-                            initial={{ opacity: 0, x: -20 }}
-                            key={idx}
-                            transition={{
-                              delay: hoveredCard === format.id ? idx * 0.1 : 0,
-                            }}
-                            viewport={{ once: false }}
-                            whileInView={{ opacity: 1, x: 0 }}>
+                            key={idx}>
                             <div className="h-2 w-2 flex-shrink-0 rounded-full bg-tech-green-400" />
                             <span>{f}</span>
-                          </motion.div>
+                          </div>
                         ))}
                       </div>
-                      <motion.div className="flex items-center justify-between border-t border-tech-green-400/20 pt-4">
+                      <div className="flex items-center justify-between border-t border-tech-green-400/20 pt-4">
                         <span className="text-tech-green-400 text-sm font-semibold">
                           Learn More
                         </span>
-                        <motion.div
-                          animate={
-                            hoveredCard === format.id ?
-                              { x: [0, 5, 0] }
-                            : { x: 0 }
-                          }
-                          transition={{
-                            repeat: hoveredCard === format.id ? Infinity : 0,
-                            duration: 1.5,
-                          }}>
+                        <div className="transition-transform duration-300 group-hover:translate-x-1">
                           <ChevronRight className="h-5 w-5 text-tech-green-400" />
-                        </motion.div>
-                      </motion.div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -338,7 +322,7 @@ export const EventFormatSection = () => {
                   onMouseEnter={() => setHoveredCard(format.id)}
                   onMouseLeave={() => setHoveredCard(null)}
                   variants={cardVariants}
-                  whileHover={{ y: -12, scale: 1.02 }}>
+                  whileHover={{ y: -8, scale: 1.01 }}>
                   <motion.div
                     animate={{
                       boxShadow:
@@ -346,25 +330,25 @@ export const EventFormatSection = () => {
                           "0 20px 60px rgba(16, 185, 129, 0.4)"
                         : "0 10px 30px rgba(0, 0, 0, 0.3)",
                     }}
-                    className="relative h-full overflow-hidden rounded-2xl bg-brand-700/40 backdrop-blur-sm shadow-xl border-2 border-tech-green-400/20 hover:border-tech-green-400/60 transition-all duration-500">
+                    className="relative h-full overflow-hidden rounded-2xl bg-brand-700/40 backdrop-blur-sm shadow-xl border-2 border-tech-green-400/20 hover:border-tech-green-400/60 transition-all duration-300">
                     <div className="relative h-64 overflow-hidden">
                       <motion.img
                         alt={format.title}
                         animate={{
-                          scale: hoveredCard === format.id ? 1.15 : 1,
+                          scale: hoveredCard === format.id ? 1.1 : 1,
                         }}
                         className="h-full w-full object-cover"
                         src={format.image}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/60 to-transparent" />
 
                       <motion.div
                         animate={{
-                          rotate: hoveredCard === format.id ? 360 : 0,
+                          rotate: hoveredCard === format.id ? 180 : 0,
                         }}
                         className="absolute top-4 right-4 flex h-12 w-12 items-center justify-center rounded-full bg-tech-green-400/90 shadow-lg backdrop-blur-sm border-2 border-white"
-                        transition={{ duration: 0.6 }}>
+                        transition={{ duration: 0.4, ease: "easeOut" }}>
                         <span className="text-brand-900 text-lg font-bold">
                           {3 + index + 1}
                         </span>
@@ -372,12 +356,10 @@ export const EventFormatSection = () => {
 
                       <motion.div
                         animate={{
-                          rotate:
-                            hoveredCard === format.id ? [0, -10, 10, 0] : 0,
-                          scale: hoveredCard === format.id ? 1.1 : 1,
+                          scale: hoveredCard === format.id ? 1.05 : 1,
                         }}
                         className={`absolute top-4 left-4 rounded-full bg-gradient-to-br p-3 ${format.color} text-white shadow-xl border-2 border-white/50`}
-                        transition={{ duration: 0.5 }}>
+                        transition={{ duration: 0.3, ease: "easeOut" }}>
                         <IconComponent className="h-5 w-5" />
                       </motion.div>
 
@@ -402,37 +384,22 @@ export const EventFormatSection = () => {
                       </p>
                       <div className="mb-4 space-y-2">
                         {format.features.slice(0, 2).map((f, idx) => (
-                          <motion.div
+                          <div
                             className="flex items-center gap-2 text-xs text-gray-300"
-                            initial={{ opacity: 0, x: -20 }}
-                            key={idx}
-                            transition={{
-                              delay: hoveredCard === format.id ? idx * 0.1 : 0,
-                            }}
-                            viewport={{ once: false }}
-                            whileInView={{ opacity: 1, x: 0 }}>
+                            key={idx}>
                             <div className="h-2 w-2 flex-shrink-0 rounded-full bg-tech-green-400" />
                             <span>{f}</span>
-                          </motion.div>
+                          </div>
                         ))}
                       </div>
-                      <motion.div className="flex items-center justify-between border-t border-tech-green-400/20 pt-4">
+                      <div className="flex items-center justify-between border-t border-tech-green-400/20 pt-4">
                         <span className="text-tech-green-400 text-sm font-semibold">
                           Learn More
                         </span>
-                        <motion.div
-                          animate={
-                            hoveredCard === format.id ?
-                              { x: [0, 5, 0] }
-                            : { x: 0 }
-                          }
-                          transition={{
-                            repeat: hoveredCard === format.id ? Infinity : 0,
-                            duration: 1.5,
-                          }}>
+                        <div className="transition-transform duration-300 group-hover:translate-x-1">
                           <ChevronRight className="h-5 w-5 text-tech-green-400" />
-                        </motion.div>
-                      </motion.div>
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>
@@ -451,10 +418,11 @@ export const EventFormatSection = () => {
             initial={{ opacity: 0 }}
             onClick={() => setSelectedFormat(null)}>
             <motion.div
-              animate={{ scale: 1, opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }} // Removed scale for lighter animation
               className="w-full max-w-3xl max-h-screen overflow-y-auto overflow-x-hidden rounded-2xl bg-brand-900 shadow-2xl border-2 border-tech-green-400/50"
-              exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              exit={{ opacity: 0, y: 10 }} // Reduced movement
+              initial={{ opacity: 0, y: 10 }} // Reduced movement
+              transition={{ duration: 0.3, ease: "easeOut" }} // Faster, simpler
               onClick={(e) => e.stopPropagation()}>
               <div className="relative h-80">
                 <img
@@ -473,15 +441,13 @@ export const EventFormatSection = () => {
                 </motion.button>
 
                 <div className="absolute right-6 bottom-6 left-6">
-                  <motion.div
-                    animate={{ opacity: 1, y: 0 }}
-                    className={`inline-flex rounded-full bg-gradient-to-r ${selectedFormat.color} p-3 mb-4 shadow-xl`}
-                    initial={{ opacity: 0, y: 20 }}>
+                  <div
+                    className={`inline-flex rounded-full bg-gradient-to-r ${selectedFormat.color} p-3 mb-4 shadow-xl`}>
                     {(() => {
                       const IconComponent = selectedFormat.icon;
                       return <IconComponent className="h-6 w-6" />;
                     })()}
-                  </motion.div>
+                  </div>
                   <h3 className="text-3xl font-bold text-white mb-2">
                     {selectedFormat.title}
                   </h3>
@@ -500,33 +466,24 @@ export const EventFormatSection = () => {
                 </p>
 
                 <div className="grid gap-6 md:grid-cols-2">
-                  <motion.div
-                    animate={{ opacity: 1, x: 0 }}
-                    initial={{ opacity: 0, x: -20 }}
-                    transition={{ delay: 0.2 }}>
+                  <div>
                     <h4 className="flex items-center gap-2 font-semibold mb-4 text-tech-green-400">
                       <Target className="h-5 w-5" />
                       Key Features
                     </h4>
                     <ul className="space-y-3">
                       {selectedFormat.features.map((f, i) => (
-                        <motion.li
-                          animate={{ opacity: 1, x: 0 }}
+                        <li
                           className="flex items-center gap-3 text-sm text-gray-200"
-                          initial={{ opacity: 0, x: -10 }}
-                          key={i}
-                          transition={{ delay: 0.3 + i * 0.1 }}>
+                          key={i}>
                           <div className="h-2 w-2 rounded-full bg-tech-green-400" />
                           {f}
-                        </motion.li>
+                        </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    animate={{ opacity: 1, x: 0 }}
-                    initial={{ opacity: 0, x: 20 }}
-                    transition={{ delay: 0.2 }}>
+                  <div>
                     <h4 className="mb-4 flex items-center gap-2 font-semibold text-cyan-400">
                       <Clock className="h-5 w-5" />
                       Session Details
@@ -557,7 +514,7 @@ export const EventFormatSection = () => {
                         Digital resources provided
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </motion.div>
