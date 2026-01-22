@@ -45,7 +45,7 @@ const AgendaRow = ({ agendaItem, index }) => {
                   ? roundtable.speakers.map((speaker, sIdx) => (
                       <div
                         key={`${rIdx}-${sIdx}`}
-                        className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 sm:border-4 border-cyan-500/50 group-hover:border-cyan-400 transition-colors duration-300">
+                        className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 border-cyan-500/50 group-hover:border-cyan-400 transition-colors duration-300">
                         <img
                           alt={speaker.name}
                           className="w-full h-full object-cover"
@@ -75,7 +75,7 @@ const AgendaRow = ({ agendaItem, index }) => {
           ) : agendaItem.moderator && agendaItem.speakers && agendaItem.speakers.length > 0 ? (
             /* Panel Discussion */
             <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-              <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-purple-500/50 group-hover:border-purple-400 transition-colors duration-300">
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 border-purple-500/50 group-hover:border-purple-400 transition-colors duration-300">
                 <img
                   alt={agendaItem.moderator.name}
                   className="w-full h-full object-cover"
@@ -89,7 +89,7 @@ const AgendaRow = ({ agendaItem, index }) => {
                 {agendaItem.speakers.map((speaker, idx) => (
                   <div
                     key={idx}
-                    className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 sm:border-4 border-blue-500/50 group-hover:border-blue-400 transition-colors duration-300">
+                    className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 border-blue-500/50 group-hover:border-blue-400 transition-colors duration-300">
                     <img
                       alt={speaker.name}
                       className="w-full h-full object-cover"
@@ -100,7 +100,7 @@ const AgendaRow = ({ agendaItem, index }) => {
               </div>
             </div>
           ) : agendaItem.moderator ? (
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-purple-500/50 group-hover:border-purple-400 transition-colors duration-300">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 border-purple-500/50 group-hover:border-purple-400 transition-colors duration-300">
               <img
                 alt={agendaItem.moderator.name}
                 className="w-full h-full object-cover"
@@ -111,7 +111,7 @@ const AgendaRow = ({ agendaItem, index }) => {
               </div>
             </div>
           ) : agendaItem.speaker ? (
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-emerald-500/50 group-hover:border-emerald-400 transition-colors duration-300">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 border-emerald-500/50 group-hover:border-emerald-400 transition-colors duration-300">
               <img
                 alt={agendaItem.speaker.name}
                 className="w-full h-full object-cover"
@@ -126,7 +126,7 @@ const AgendaRow = ({ agendaItem, index }) => {
               {agendaItem.speakers.map((speaker, idx) => (
                 <div
                   key={idx}
-                  className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full overflow-hidden border-2 sm:border-4 border-blue-500/50 group-hover:border-blue-400 transition-colors duration-300">
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-2 sm:border-4 border-blue-500/50 group-hover:border-blue-400 transition-colors duration-300">
                   <img
                     alt={speaker.name}
                     className="w-full h-full object-cover"
@@ -185,7 +185,7 @@ const AgendaRow = ({ agendaItem, index }) => {
                       {roundtable.speakers.map((speaker, sIdx) => (
                         <div key={sIdx} className="flex items-center gap-1.5 sm:gap-2">
                           <Mic className="w-3 h-3 sm:w-3 sm:h-3 text-cyan-400 flex-shrink-0" />
-                          <p className="text-cyan-300 font-medium text-xs sm:text-xs break-words">
+                          <p className="text-cyan-300 font-medium text-sm sm:text-base break-words">
                             {speaker.name}
                             {speaker.role && ` • ${speaker.role}`}
                           </p>
@@ -208,7 +208,7 @@ const AgendaRow = ({ agendaItem, index }) => {
                   {agendaItem.moderator && (
                     <div className="flex items-center gap-1.5 sm:gap-2">
                       <User className="w-3 h-3 sm:w-3 sm:h-3 text-purple-400 flex-shrink-0" />
-                      <p className="text-purple-400 font-semibold text-xs sm:text-xs break-words">
+                      <p className="text-purple-400 font-semibold text-sm sm:text-base break-words">
                         <span className="hidden sm:inline">Moderator: </span>
                         <span className="sm:hidden">Mod: </span>
                         {agendaItem.moderator.name}
@@ -219,7 +219,7 @@ const AgendaRow = ({ agendaItem, index }) => {
                   {agendaItem.speaker && (
                     <div className="flex items-center gap-1.5 sm:gap-2">
                       <Mic className="w-3 h-3 sm:w-3 sm:h-3 text-emerald-400 flex-shrink-0" />
-                      <p className="text-emerald-400 font-semibold text-xs sm:text-xs break-words">
+                      <p className="text-emerald-400 font-semibold text-sm sm:text-base break-words">
                         {agendaItem.speaker.name}
                         {agendaItem.speaker.role && ` • ${agendaItem.speaker.role}`}
                       </p>
@@ -230,7 +230,7 @@ const AgendaRow = ({ agendaItem, index }) => {
                       {agendaItem.speakers.map((speaker, idx) => (
                         <div key={idx} className="flex items-center gap-1.5 sm:gap-2">
                           <Mic className="w-3 h-3 sm:w-3 sm:h-3 text-blue-400 flex-shrink-0" />
-                          <p className="text-blue-400 font-semibold text-xs sm:text-xs break-words">
+                          <p className="text-blue-400 font-semibold text-sm sm:text-base break-words">
                             {speaker.name}
                             {speaker.role && ` • ${speaker.role}`}
                           </p>

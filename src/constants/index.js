@@ -225,6 +225,22 @@ export const SPEAKERS = [
     company: "Deloitte",
     image: "/images/speakers/Anna-Cheong.png",
     isExclusive: true,
+  },
+  {
+    id: 5,
+    fullName: "Gek Peng Tay",
+    jobTitle: "RSAF Chief Data Officer",
+    company: "Republic of Singapore Air Force",
+    image: "/images/speakers/Gek-Peng-Tay.webp",
+    isExclusive: false,
+  },
+  {
+    id: 6,
+    fullName: "Anders Nordhal",
+    jobTitle: "Head of IT",
+    company: "Berge Bulk",
+    image: "/images/speakers/Anders-Nordahl.webp",
+    isExclusive: false,
   }
 ];
 
@@ -238,7 +254,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 2,
-    time: "09:30 AM",
+    time: "08:50 AM",
     title: "Orientation",
     moderator: {
       name: "Jeffrey Teh",
@@ -251,18 +267,27 @@ export const AGENDA_DAY_1 = [
     //   image: "/images/contacts/zen.png",
     //   role: "Chief AI Officer, Tech Innovations Asia",
     // },
-    // description: "Exploring the latest trends and innovations in enterprise technology",
+    description: "Welcome Speech by CEO of TEH Group",
   },
+  // {
+  //   id: 3,
+  //   time: "09:00 AM",
+  //   title: "Keynote",
+  //   type: "session",
+  //   speakers: [
+  //     {
+  //       name: "Josephine Teo",
+  //       image: "/images/speakers/Veronica-Tan.webp",
+  //       role: "Minister for Digital Development and Information of Singapore",
+  //     }
+  //   ],
+  //   description: "Collective Cyber Defense: The Future of Shared Threat Intelligence in Singapore",
+  // },
   {
     id: 3,
-    time: "09:40 AM",
-    title: "Keynote",
+    time: "09:20 AM",
+    title: "Presentation",
     type: "session",
-    // moderator: {
-    //   name: "Jeffrey Teh",
-    //   image: "/images/contacts/jeffreyteh.png",
-    //   role: "CTO, The TEH Group",
-    // },
     speakers: [
       {
         name: "Veronica Tan",
@@ -280,7 +305,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 6,
-    time: "10:10 AM",
+    time: "09:50 AM",
     title: "AI - GRC",
     type: "session",
     speakers: [
@@ -293,8 +318,14 @@ export const AGENDA_DAY_1 = [
     description: "Accountability in AI for Business: Governance, Ethics, and Risk Management",
   },
   {
+    id: 8,
+    time: "10:20 AM",
+    title: "Coffee Break",
+    type: "break",
+  },
+  {
     id: 7,
-    time: "10:40 AM",
+    time: "10:30 AM",
     title: "AI - CyberSecurity",
     type: "session",
     speakers: [
@@ -307,21 +338,22 @@ export const AGENDA_DAY_1 = [
     description: "The AI Cyber Nexus: Navigating Threats and Driving Innovation",
   },
   {
-    id: 8,
-    time: "11:10 AM",
-    title: "Coffee Break",
-    type: "break",
-  },
-  {
     id: 9,
-    time: "11:40 AM",
+    time: "11:00 AM",
     title: "AI - DATA",
     type: "session",
-    description: "Building Smarter Workflows with AI-Powered Intelligence/ Building Trusted Digital Ecosystems: AI, Standards, and Cross-Border Collaboration",
+    speakers: [
+      {
+        name: "Gek Peng Tay",
+        image: "/images/speakers/Gek-Peng-Tay.webp",
+        role: "RSAF Chief Data Officer - Republic of Singapore Air Force",
+      }
+    ],
+    description: "AI at Work: Embedding Intelligent, Responsible Enterprise Workflows",
   },
   {
     id: 10,
-    time: "12:10 PM",
+    time: "11:30 PM",
     title: "Cloud",
     speakers: [
       {
@@ -335,20 +367,27 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 11,
-    time: "12:40 PM",
+    time: "12:00 PM",
     title: "OT/IT",
-    description: "Building Smarter Workflows with AI-Powered Intelligence/ Building Trusted Digital Ecosystems: AI, Standards, and Cross-Border Collaboration",
+    speakers: [
+      {
+        name: "Anders Nordhal",
+        image: "/images/speakers/Anders-Nordahl.webp",
+        role: "Head of IT - Berge Bulk"
+      }
+    ],
+    description: "Bridging OT–IT Gaps: AI as the Catalyst for Industrial Interoperability",
     type: "Session",
   },
   {
     id: 12,
-    time: "01:10 PM",
+    time: "12:30 PM",
     title: "Break Lunch",
     type: "break",
   },
   {
     id: 13,
-    time: "01:40 PM",
+    time: "01:00 PM",
     title: "Demo Sessions",
     type: "demo",
     description: "Interactive demonstrations showcasing the latest innovations and technologies",
@@ -363,19 +402,26 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 14,
-    time: "02:00 PM",
+    time: "01:30 PM",
     title: "SOC and MDR / From AI Strategy to Scaled Products: Building Trust, Growth, and Resilience in FinTech Platforms",
     type: "session",
   },
 
   {
     id: 15,
-    time: "02:30 PM",
+    time: "02:00 PM",
     title: "Threat",
     type: "session",
   },
   {
     id: 16,
+    time: "03:30 PM",
+    title: "ASEAN Thought Leadership Panel",
+    description: "AI at ASEAN Scale: Balancing Innovation, Trust, and Systemic Risk in Safe AI Deployment.",
+    type: "session",
+  },
+  {
+    id: 17,
     time: "04:30 PM",
     title: "Break Time & End of Event",
     type: "break",
