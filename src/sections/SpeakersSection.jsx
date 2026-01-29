@@ -5,79 +5,72 @@ import { useRef } from "react";
 import { Mic } from "lucide-react";
 import { SPEAKERS } from "../constants";
 
+const CARD_MIN_HEIGHT = 420;
+
 const SpeakerCard = ({ speaker, index }) => {
   const cardRef = useRef(null);
   const isInView = useInView(cardRef, { once: true, amount: 0.3 });
-  const isExclusive = speaker.isExclusive || false;
+  const isExclusive = Boolean(speaker.isExclusive);
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group relative w-full">
-      {/* Enhanced glow effect for exclusive speakers */}
-      <div className={`absolute -inset-1 bg-gradient-to-r ${isExclusive ? 'from-purple-500/70 via-emerald-500/70 to-cyan-500/70' : 'from-emerald-500/50 to-cyan-500/50'} rounded-2xl blur-xl ${isExclusive ? 'opacity-30' : 'opacity-0'} group-hover:opacity-75 transition-opacity duration-500`} />
-      
-      {/* Exclusive badge */}
+      initial={{ opacity: 0, y: 40 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className="group relative w-full h-full flex"
+    >
+      {/* Glow (exclusive only) */}
       {isExclusive && (
-        <div className="absolute -top-3 -right-3 z-20 px-3 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-white text-xs font-bold shadow-lg shadow-emerald-500/50">
-          EXCLUSIVE
-        </div>
+        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/70 via-emerald-500/70 to-cyan-500/70 rounded-2xl blur-xl opacity-30 group-hover:opacity-60 transition-opacity duration-500 -z-10" />
       )}
-      
+
       {/* Card */}
       <motion.div
-        className={`relative bg-gradient-to-br from-slate-900/95 to-slate-800/95 backdrop-blur-xl rounded-2xl ${isExclusive ? 'border-2 border-emerald-400/60 hover:border-emerald-300/90 shadow-2xl shadow-emerald-500/30' : 'border border-emerald-500/30 hover:border-emerald-400/70'} overflow-hidden h-full min-h-[420px]`}
-        whileHover={{ y: -12, scale: 1.03 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-        
-        {/* Enhanced background gradient effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.2),transparent)]" />
-        
-        {/* Animated border glow for exclusive */}
+        className={`relative w-full h-full flex flex-col bg-gradient-to-br from-slate-900/95 to-slate-800/95 backdrop-blur-xl rounded-2xl overflow-hidden border ${
+          isExclusive
+            ? "border-2 border-emerald-400/60 shadow-xl shadow-emerald-500/20 hover:border-emerald-300/80"
+            : "border border-emerald-500/30 hover:border-emerald-400/60"
+        }`}
+        style={{ minHeight: CARD_MIN_HEIGHT }}
+        whileHover={{ y: -8, scale: 1.02 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        {/* Exclusive badge */}
         {isExclusive && (
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm" />
+          <div className="absolute top-3 right-3 z-10 px-2.5 py-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full text-white text-xs font-bold shadow-lg">
+            EXCLUSIVE
+          </div>
         )}
-        
-        {/* Top glow orb */}
-        <div className="absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br from-emerald-500/30 to-cyan-500/30 rounded-full blur-3xl opacity-30 group-hover:opacity-40 transition-opacity duration-500" />
+
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.15),transparent)] pointer-events-none" />
 
         {/* Content */}
-        <div className="relative p-8 flex flex-col items-center text-center h-full min-h-[420px]">
-          {/* Speaker Image */}
-          <div className="relative mb-4">
-            {/* Enhanced glow ring for exclusive */}
-            <div className={`absolute inset-0 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full blur-lg ${isExclusive ? 'opacity-30' : 'opacity-0'} group-hover:opacity-50 transition-opacity duration-500`} />
-            
-            {/* Image container - same size for all */}
-            <motion.div
-              className="relative w-40 h-40 border-4 rounded-full overflow-hidden border-emerald-500/50 group-hover:border-emerald-400 transition-colors duration-300"
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 400 }}>
+        <div className="relative flex flex-col items-center text-center p-6 sm:p-8 flex-1">
+          {/* Avatar */}
+          <div className="relative mb-4 flex-shrink-0">
+            <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-emerald-500/50 group-hover:border-emerald-400 transition-colors duration-300">
               <img
                 alt={speaker.fullName}
                 className="w-full h-full object-cover"
                 src={speaker.image}
               />
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </motion.div>
+            </div>
           </div>
 
-          {/* Name - same size for all */}
-          <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-emerald-400 transition-colors duration-300">
+          {/* Name */}
+          <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-2 line-clamp-2">
             {speaker.fullName}
           </h3>
 
-          {/* Job Title - same size for all */}
-          <p className="text-emerald-400 font-semibold text-base mb-1 min-h-[24px]">
+          {/* Job title */}
+          <p className="text-emerald-400 font-semibold text-sm sm:text-base mb-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
             {speaker.jobTitle}
           </p>
 
-          {/* Company - same size for all */}
-          <p className="text-gray-400 text-base mb-2 group-hover:text-gray-300 transition-colors duration-300 min-h-[48px] flex items-center justify-center">
+          {/* Company */}
+          <p className="text-gray-400 text-sm sm:text-base line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
             {speaker.company}
           </p>
         </div>
@@ -88,93 +81,82 @@ const SpeakerCard = ({ speaker, index }) => {
 
 export const SpeakersSection = () => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
+  const isInView = useInView(containerRef, { once: true, amount: 0.15 });
+
+  const hasLastRowOfTwo = SPEAKERS.length > 4 && SPEAKERS.length % 4 === 2;
+  const firstRowSpeakers = hasLastRowOfTwo ? SPEAKERS.slice(0, -2) : SPEAKERS;
+  const lastRowSpeakers = hasLastRowOfTwo ? SPEAKERS.slice(-2) : [];
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center py-12 px-4 overflow-hidden"
+      ref={containerRef}
       id="speakers"
-      ref={containerRef}>
-      
-      {/* Background Effects */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-32 right-20 w-96 h-96 bg-blue-500/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-32 left-20 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/20 rounded-full blur-3xl" />
+      className="relative min-h-screen flex items-center justify-center py-12 px-4 overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-32 right-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-32 left-20 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/15 rounded-full blur-3xl" />
       </div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.04)_0%,transparent_70%)]" />
 
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_100%)]" />
-
-      <div className="max-w-7xl mx-auto relative z-10 w-full">
+      <div className="relative z-10 w-full max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           className="text-center mb-10"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}>
-          
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
           <motion.div
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-emerald-500/20 to-blue-500/20 border border-emerald-500/40 mb-4 backdrop-blur-sm"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-            transition={{ type: "spring", stiffness: 200, delay: 0.2 }}>
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 mb-4"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={isInView ? { scale: 1, opacity: 1 } : {}}
+            transition={{ delay: 0.1, duration: 0.5 }}
+          >
             <Mic className="w-5 h-5 text-emerald-400" />
-            <span className="text-emerald-400 font-semibold">
-              Industry Experts
-            </span>
+            <span className="text-emerald-400 font-semibold">Industry Experts</span>
           </motion.div>
 
-          <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-4"
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8, delay: 0.3 }}>
-            <span className="bg-gradient-to-r from-blue-400 via-emerald-400 to-purple-400 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-blue-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">
               Our Speakers
             </span>
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            className="text-xl text-gray-400 max-w-3xl mx-auto"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}>
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
             Learn from leading experts in AI, Cybersecurity, and Enterprise Technology
-          </motion.p>
+          </p>
         </motion.div>
 
-        {/* Speakers Grid */}
-        <div>
-          {/* First row - all speakers except last 2 */}
-          {SPEAKERS.length > 2 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center mb-6">
-              {SPEAKERS.slice(0, SPEAKERS.length - 2).map((speaker, index) => (
-                <div key={speaker.id || index} className="w-full">
+        {/* Speakers grid */}
+        <div className="space-y-6">
+          {/* First row(s) - all speakers except last 2 when we have a partial row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center items-stretch">
+            {firstRowSpeakers.map((speaker, index) => (
+              <div key={speaker.id ?? index} className="w-full max-w-[320px] flex">
+                <SpeakerCard speaker={speaker} index={index} />
+              </div>
+            ))}
+          </div>
+
+          {/* Last row: 2 speakers centered (when 6, 10, 14... speakers) */}
+          {lastRowSpeakers.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center items-stretch w-full">
+              <div className="hidden lg:block w-full max-w-[320px]" aria-hidden />
+              {lastRowSpeakers.map((speaker, index) => (
+                <div
+                  key={speaker.id ?? firstRowSpeakers.length + index}
+                  className="w-full max-w-[320px] flex"
+                >
                   <SpeakerCard
-                    index={index}
                     speaker={speaker}
+                    index={firstRowSpeakers.length + index}
                   />
                 </div>
               ))}
-            </div>
-          )}
-          
-          {/* Last 2 speakers - centered using grid with empty columns */}
-          {SPEAKERS.length >= 2 && (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
-              {/* Empty columns on large screens to center the 2 speakers */}
-              <div className="hidden lg:block w-full"></div>
-              <div className="hidden lg:block w-full"></div>
-              {/* Last 2 speakers */}
-              {SPEAKERS.slice(-2).map((speaker, index) => (
-                <div key={speaker.id || SPEAKERS.length - 2 + index} className="w-full">
-                  <SpeakerCard
-                    index={SPEAKERS.length - 2 + index}
-                    speaker={speaker}
-                  />
-                </div>
-              ))}
+              <div className="hidden lg:block w-full max-w-[320px]" aria-hidden />
             </div>
           )}
         </div>
@@ -182,4 +164,3 @@ export const SpeakersSection = () => {
     </section>
   );
 };
-

@@ -1,5 +1,5 @@
 export const MENU_ITEMS = [
-  // { name: "Sponsors", id: "sponsors" },
+  { name: "Sponsors", id: "sponsors" },
   // { name: "Why", id: "why" },
   // { name: "Tour", id: "tours" },
   // { name: "Target Audience", id: "audience" },
@@ -151,25 +151,35 @@ export const TOUR_CITIES = [
 
 export const PARTNERS = [
   {
-    src: "/images/sponsors/LMNTRIX.webp",
-    alt: "LMNTRIX",
-    url: "https://lmntrix.com/",
-  },
-  {
-    src: "/images/sponsors/XTREMAX.webp",
-    alt: "Xtremax",
-    url: "https://www.xtremax.com/",
-  },
-  {
-    src: "/images/sponsors/TrendMicro.webp",
-    alt: "TrendMicro",
+    src: "/images/sponsors/Trendmicro.webp",
+    alt: "Trendmicro",
     url: "https://www.trendmicro.com/",
   },
   {
-    src: "/images/sponsors/ProofPoint.webp",
-    alt: "ProofPoint",
+    src: "/images/sponsors/Beyondtrust.webp",
+    alt: "Beyondtrust",
+    url: "https://www.beyondtrust.com/",
+  },
+  {
+    src: "/images/sponsors/Proofpoint.webp",
+    alt: "Proofpoint",
     url: "https://www.proofpoint.com/",
-  }
+  },
+  {
+    src: "/images/sponsors/Mimecast.webp",
+    alt: "Mimecast",
+    url: "https://www.mimecast.com/",
+  },
+  {
+    src: "/images/sponsors/Gigamon.webp",
+    alt: "Gigamon",
+    url: "https://www.gigamon.com/",
+  },
+  {
+    src: "/images/sponsors/LMNTRX.webp",
+    alt: "LMNTRIX",
+    url: "https://lmntrix.com/",
+  },
 ];
 
 export const LOCATION_DATA = {
@@ -241,7 +251,15 @@ export const SPEAKERS = [
     company: "Berge Bulk",
     image: "/images/speakers/Anders-Nordahl.webp",
     isExclusive: false,
-  }
+  },
+  {
+    id: 7,
+    fullName: "Sandro Pelaez",
+    jobTitle: "Director of Product Management",
+    company: "Aspire",
+    image: "/images/speakers/Sandro-Pelaez.webp",
+    isExclusive: false,
+  },
 ];
 
 export const AGENDA_DAY_1 = [
@@ -285,8 +303,8 @@ export const AGENDA_DAY_1 = [
   // },
   {
     id: 3,
-    time: "09:20 AM",
-    title: "Presentation",
+    time: "09:00 AM",
+    title: "Keynote",
     type: "session",
     speakers: [
       {
@@ -298,6 +316,20 @@ export const AGENDA_DAY_1 = [
     description: "Collective Cyber Defense: The Future of Shared Threat Intelligence in Singapore",
   },
   {
+    id: 4,
+    time: "09:30 AM",
+    title: "AI in Governance & Ethics",
+    type: "session",
+    speakers: [
+      {
+        name: "Sourabh Haldar",
+        image: "/images/speakers/Sourabh-haldar.jfif",
+        role: "Senior Director, Cyber and Tech Risk",
+      }
+    ],
+    description: "Accountability in AI for Business: Governance and Ethics - Standard Chatered",
+  },
+  {
     id: 5,
     time: "10:00 AM - 04:00 PM",
     title: "One on One Business Meetings",
@@ -305,78 +337,78 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 6,
-    time: "09:50 AM",
-    title: "AI - GRC",
-    type: "session",
-    speakers: [
-      {
-        name: "Sourabh Haldar",
-        image: "/images/speakers/Sourabh-haldar.jfif",
-        role: "CISO, Risk & Governance - Standard Chartered",
-      }
-    ],
-    description: "Accountability in AI for Business: Governance, Ethics, and Risk Management",
-  },
-  {
-    id: 8,
-    time: "10:20 AM",
-    title: "Coffee Break",
-    type: "break",
-  },
-  {
-    id: 7,
-    time: "10:30 AM",
-    title: "AI - CyberSecurity",
+    time: "10:00 AM",
+    title: "AI In Risk Detection & Management",
     type: "session",
     speakers: [
       {
         name: "Sarani De",
         image: "/images/speakers/Sarani-De.webp",
-        role: "SVP - CISO APAC Risk & Compliance Head - CitiBank",
-      },
+        role: "SVP, CISO APAC Risk & Compliance Head - CitiBank",
+      }
     ],
-    description: "The AI Cyber Nexus: Navigating Threats and Driving Innovation",
+    description: "AI in the Digital Battlefield: Enterprise Security, Risk, and Resilience",
   },
   {
-    id: 9,
-    time: "11:00 AM",
-    title: "AI - DATA",
+    id: 8,
+    time: "10:30 AM",
+    title: "Coffee Break",
+    type: "break",
+  },
+  {
+    id: 7,
+    time: "10:50 AM",
+    title: "AI Innovation",
     type: "session",
     speakers: [
       {
-        name: "Gek Peng Tay",
+        name: "Gek Peng Tay ",
         image: "/images/speakers/Gek-Peng-Tay.webp",
         role: "RSAF Chief Data Officer - Republic of Singapore Air Force",
+      },
+    ],
+    description: "Innovation and Governance with AI: Parallels from Aviation",
+  },
+  {
+    id: 9,
+    time: "11:20 AM",
+    title: "AI in Productive Deployment",
+    type: "session",
+    speakers: [
+      {
+        name: "Sandro Pelaez",
+        image: "/images/speakers/Sandro-Pelaez.webp",
+        role: "Director of Product Management - Aspire",
       }
     ],
-    description: "AI at Work: Embedding Intelligent, Responsible Enterprise Workflows",
+    description: "From AI Strategy to Product Impact: Driving Trust and Growth in FinTech",
   },
   {
     id: 10,
-    time: "11:30 PM",
-    title: "Cloud",
+    time: "11:50 PM",
+    title: "IT/OT with AI",
     speakers: [
       {
-        name: "Anna Cheong",
-        image: "/images/speakers/Anna-Cheong.png",
-        role: "Director, Technology & Transformation - Deloitte",
+        name: "Anders Nordahl",
+        image: "/images/speakers/Anders-Nordahl.webp",
+        role: " Head of IT - Berge Bulk",
       },
     ],
-    description: "Scaling Enterprise Technology in 2026: Cloud and Data",
+    description: "Bridging OT–IT Gaps: AI as the Catalyst for Industrial Interoperability",
     type: "Session",
   },
   {
     id: 11,
-    time: "12:00 PM",
-    title: "OT/IT",
+    time: "12:20 PM",
+    title: "Enterprise Tech for Cloud & Data Management",
     speakers: [
       {
-        name: "Anders Nordhal",
-        image: "/images/speakers/Anders-Nordahl.webp",
-        role: "Head of IT - Berge Bulk"
+        name: "Anna Cheong",
+        image: "/images/speakers/Anna-Cheong.png",
+        role: "Director, Technology & Transformation - Deloitte"
       }
     ],
-    description: "Bridging OT–IT Gaps: AI as the Catalyst for Industrial Interoperability",
+    description: "Scaling Enterprise Technology in 2026: Cloud and Data ",
     type: "Session",
   },
   {

@@ -71,9 +71,9 @@ export const PastSponsorSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 w-full px-4">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-16 max-w-4xl mx-auto">
+        <div className="text-center mb-12 max-w-3xl mx-auto">
           <motion.div
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 border-2 border-emerald-400/40 mb-6 backdrop-blur-sm shadow-lg"
             initial={{ scale: 0, rotate: -180 }}
@@ -125,7 +125,7 @@ export const PastSponsorSection = () => {
           transition={{ delay: 0.8 }}
           viewport={{ once: false }}
           whileInView={{ opacity: 1, y: 0 }}>
-          <SponsorsGrid logos={PARTNERS.slice(0, 4)} />
+          <SponsorsGrid logos={PARTNERS} />
         </motion.div>
       </div>
     </section>
@@ -134,8 +134,8 @@ export const PastSponsorSection = () => {
 
 const SponsorsGrid = ({ logos = [] }) => {
   return (
-    <div className="relative py-4 max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 justify-items-center">
+    <div className="relative py-4 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-items-center items-stretch">
         {logos.map((logo, i) => (
           <LogoCard key={`sponsor-${i}`} logo={logo} />
         ))}
@@ -155,7 +155,7 @@ const LogoCard = ({ logo }) => {
 
   return (
     <motion.div
-      className="flex items-center justify-center rounded-3xl bg-white/90 backdrop-blur-sm shadow-lg cursor-pointer overflow-hidden relative group mx-auto p-4 md:p-8 w-full min-h-[120px] md:min-h-0"
+      className="flex items-center justify-center rounded-3xl bg-white/90 backdrop-blur-sm shadow-lg cursor-pointer overflow-hidden relative group mx-auto px-8 py-6 md:px-12 md:py-6 w-full min-h-[100px] md:min-h-[120px]"
       onClick={handleClick}
       onHoverEnd={() => setIsHovered(false)}
       onHoverStart={() => setIsHovered(true)}
@@ -189,7 +189,7 @@ const LogoCard = ({ logo }) => {
               "grayscale(0%) brightness(1.15) contrast(1.1)"
             : "grayscale(100%) brightness(0.95) opacity(0.8)",
         }}
-        className="relative z-10 w-full h-full object-contain max-h-[140px] md:max-h-none"
+        className="relative z-10 w-full h-auto object-contain max-h-[90px] md:max-h-[110px] min-w-[260px] md:min-w-[320px]"
         src={logo.src}
         transition={{ duration: 0.3 }}
       />

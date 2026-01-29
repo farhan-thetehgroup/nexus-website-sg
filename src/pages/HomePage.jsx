@@ -33,7 +33,7 @@ export const HomePage = () => {
       <TechParticleField />
       <AdvancedNavbar scrollToSection={scrollToSection} />
       <HeroSection scrollToSection={scrollToSection} />
-      {/* <PastSponsorSection /> */}
+      <PastSponsorSection />
       {/* <WhySponsorSection /> */}
       {/* <AudienceSection /> */}
       <SpeakersSection />
