@@ -151,7 +151,7 @@ export const TOUR_CITIES = [
 
 export const PARTNERS = [
   {
-    src: "/images/sponsors/Trendmicro.webp",
+    src: "/images/sponsors/Trend-micro.webp",
     alt: "Trendmicro",
     url: "https://www.trendmicro.com/",
   },
@@ -161,7 +161,7 @@ export const PARTNERS = [
     url: "https://www.beyondtrust.com/",
   },
   {
-    src: "/images/sponsors/Proofpoint.webp",
+    src: "/images/sponsors/PROOFPOINT.webp",
     alt: "Proofpoint",
     url: "https://www.proofpoint.com/",
   },
