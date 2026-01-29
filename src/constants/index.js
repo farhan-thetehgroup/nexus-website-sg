@@ -161,7 +161,7 @@ export const PARTNERS = [
     url: "https://www.beyondtrust.com/",
   },
   {
-    src: "/images/sponsors/PROOFPOINT.webp",
+    src: "/images/sponsors/ProofPoint.webp",
     alt: "Proofpoint",
     url: "https://www.proofpoint.com/",
   },
