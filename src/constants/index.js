@@ -390,7 +390,7 @@ export const AGENDA_DAY_1 = [
   },
   
   {
-    id: 8,
+    id: 6,
     time: "10:30 AM",
     title: "Coffee Break",
     type: "break",
@@ -410,7 +410,7 @@ export const AGENDA_DAY_1 = [
     description: "Innovation and Governance with AI: Parallels from Aviation",
   },
   {
-    id: 9,
+    id: 8,
     time: "11:15 AM",
     title: "AI in Productive Deployment",
     type: "session",
@@ -424,7 +424,7 @@ export const AGENDA_DAY_1 = [
     description: "From AI Strategy to Product Impact: Driving Trust and Growth in FinTech",
   },
   {
-    id: 10,
+    id: 9,
     time: "11:45 AM",
     title: "IT/OT with AI",
     speakers: [
@@ -438,8 +438,23 @@ export const AGENDA_DAY_1 = [
     type: "Session",
   },
   {
-    id: 11,
+    id: 10,
     time: "12:15 PM",
+    title: "Presentation",
+    type: "demo",
+    image: "/images/sponsors/ProofPoint.webp",
+    speakers: [
+    ]
+  },
+  {
+    id: 11,
+    time: "12:45 PM",
+    title: "Break Lunch",
+    type: "break",
+  },
+  {
+    id: 12,
+    time: "01:15 PM",
     title: "ASEAN Thought Leadership Panel",
     speakers: [
       {
@@ -462,37 +477,7 @@ export const AGENDA_DAY_1 = [
     type: "Session",
   },
   {
-    id: 12,
-    time: "01:00 PM",
-    title: "Break Lunch",
-    type: "break",
-  },
-  {
     id: 13,
-    time: "02:00 PM",
-    title: "Demo Sessions",
-    type: "demo",
-    description: "Innovation & Cybersecurity",
-    demoSessions: [
-      {
-        title: "Track 1 - Innovation",
-      },
-      {
-        title: "Track 2 - Cybersecurity",
-      }
-    ]
-  },
-  {
-    id: 14,
-    time: "02:00 PM",
-    title: "Presentation",
-    type: "demo",
-    image: "/images/sponsors/ProofPoint.webp",
-    speakers: [
-    ]
-  },
-  {
-    id: 14,
     time: "02:30 PM",
     title: "Innovation",
     type: "demo",
@@ -502,7 +487,7 @@ export const AGENDA_DAY_1 = [
     ]
   },
   {
-    id: 15,
+    id: 14,
     time: "03:00 PM",
     title: "Cybersecurity ",
     type: "demo",
