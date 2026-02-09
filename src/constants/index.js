@@ -221,6 +221,22 @@ export const WHATSAPP_MESSAGE =
 export const SPEAKERS = [
   {
     id: 1,
+    fullName: "Kiat How Tan",
+    jobTitle: "Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health",
+    company: "Singapore Government",
+    image: "/images/speakers/Tan-Kiat-How.webp",
+    isExclusive: true,
+  },
+  {
+    id: 2,
+    fullName: "Gek Peng Tay",
+    jobTitle: "RSAF Chief Data Officer",
+    company: "Republic of Singapore Air Force",
+    image: "/images/speakers/Gek-Peng-Tay.webp",
+    isExclusive: true,
+  },
+  {
+    id: 3,
     fullName: "Scott Flower",
     jobTitle: "Founder",
     company: "CI-ISAC",
@@ -228,7 +244,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 2,
+    id: 4,
     fullName: "Sourabh Haldar",
     jobTitle: "CISO, Risk & Governance",
     company: "Standard Chartered",
@@ -236,7 +252,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 3,
+    id: 5,
     fullName: "Sarani De",
     jobTitle: "SVP - CISO APAC Risk & Compliance Head",
     company: "CitiBank",
@@ -244,15 +260,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 4,
-    fullName: "Gek Peng Tay",
-    jobTitle: "RSAF Chief Data Officer",
-    company: "Republic of Singapore Air Force",
-    image: "/images/speakers/Gek-Peng-Tay.webp",
-    isExclusive: false,
-  },
-  {
-    id: 5,
+    id: 6,
     fullName: "Anders Nordhal",
     jobTitle: "Head of IT",
     company: "Berge Bulk",
@@ -260,7 +268,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 6,
+    id: 7,
     fullName: "Sandro Pelaez",
     jobTitle: "Director of Product Management",
     company: "Aspire",
@@ -268,7 +276,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 7,
+    id: 8,
     fullName: "Daniel Oscar Baskoro",
     jobTitle: "Chief Project Officer ",
     company: "Nusantara Capital Authority ",
@@ -276,7 +284,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 8,
+    id: 9,
     fullName: "Scott Flower",
     jobTitle: "Founder",
     company: "CI-ISAC",
@@ -284,21 +292,13 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 9,
+    id: 10,
     fullName: "Arnel Distor",
     jobTitle: "CITO",
     company: "Philippines Government Hospital PH",
     image: "/images/speakers/Arnel-Distor.webp",
     isExclusive: false,
   },
-  {
-    id: 10,
-    fullName: "Kiat How Tan",
-    jobTitle: "Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health",
-    company: "Singapore Government",
-    image: "/images/speakers/Tan-Kiat-How.webp",
-    isExclusive: false,
-  }
 ];
 
 export const AGENDA_DAY_1 = [
