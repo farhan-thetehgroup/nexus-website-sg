@@ -190,6 +190,9 @@ const FooterLink = ({ href, children }) => {
   );
 };
 
+// Viewport options so footer content reliably animates in even when scrolling fast
+const FOOTER_VIEWPORT = { once: true, amount: 0, margin: "0px 0px 150px 0px" };
+
 export const FooterSection = () => {
   const [currentYear] = useState(new Date().getFullYear());
 
@@ -234,7 +237,7 @@ export const FooterSection = () => {
             className="lg:col-span-1"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={FOOTER_VIEWPORT}
             whileInView={{ opacity: 1, y: 0 }}>
             <motion.div
               className="mb-6"
@@ -259,7 +262,7 @@ export const FooterSection = () => {
                   initial={{ opacity: 0, scale: 0 }}
                   key={idx}
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
-                  viewport={{ once: true }}
+                  viewport={FOOTER_VIEWPORT}
                   whileInView={{ opacity: 1, scale: 1 }}>
                   <SocialLink {...social} />
                 </motion.div>
@@ -272,7 +275,7 @@ export const FooterSection = () => {
             className="lg:col-span-1"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            viewport={FOOTER_VIEWPORT}
             whileInView={{ opacity: 1, y: 0 }}>
             <h3 className="text-emerald-400 font-bold mb-6 text-lg">
               Quick Links
@@ -283,7 +286,7 @@ export const FooterSection = () => {
                   initial={{ opacity: 0, x: -20 }}
                   key={idx}
                   transition={{ delay: 0.1 * idx, duration: 0.4 }}
-                  viewport={{ once: true }}
+                  viewport={FOOTER_VIEWPORT}
                   whileInView={{ opacity: 1, x: 0 }}>
                   <FooterLink
                     href={link.id.startsWith("#") ? link.id : `#${link.id}`}>
@@ -299,7 +302,7 @@ export const FooterSection = () => {
             className="lg:col-span-1"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
+            viewport={FOOTER_VIEWPORT}
             whileInView={{ opacity: 1, y: 0 }}>
             <h3 className="text-cyan-400 font-bold mb-6 text-lg">
               Get In Touch
@@ -353,7 +356,7 @@ export const FooterSection = () => {
           className="pt-8 border-t-2 border-emerald-400/20"
           initial={{ opacity: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
-          viewport={{ once: true }}
+          viewport={FOOTER_VIEWPORT}
           whileInView={{ opacity: 1 }}>
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">

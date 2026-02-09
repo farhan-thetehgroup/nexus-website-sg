@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Clock, Coffee, UtensilsCrossed, Mic, User, UserPlus, Users, Wine } from "lucide-react";
+import { Calendar, Clock, Coffee, UtensilsCrossed, Mic, User, UserPlus, Users, Wine, MonitorPlay } from "lucide-react";
 import { AGENDA_DAY_1, AGENDA_DAY_2 } from "../constants";
 
 const AgendaRow = ({ agendaItem, index }) => {
@@ -34,9 +34,19 @@ const AgendaRow = ({ agendaItem, index }) => {
         {/* Speaker Image or Break/Registration/Meeting Icon */}
         <div className="flex-shrink-0">
           {isDemo ? (
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden border-2 sm:border-4 border-violet-500/50 group-hover:border-violet-400 transition-colors duration-300 flex items-center justify-center bg-gradient-to-br from-violet-500/20 to-purple-500/20">
-              <Mic className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-violet-400" />
-            </div>
+            agendaItem.image ? (
+              <div className="relative w-24 h-12 sm:w-32 sm:h-14 md:w-40 md:h-16 rounded-xl overflow-hidden border-2 sm:border-4 border-violet-500/50 group-hover:border-violet-400 transition-colors duration-300 flex items-center justify-center bg-white p-1">
+                <img
+                  alt={agendaItem.title}
+                  className="w-full h-full object-contain"
+                  src={agendaItem.image}
+                />
+              </div>
+            ) : (
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl overflow-hidden border-2 sm:border-4 border-violet-500/50 group-hover:border-violet-400 transition-colors duration-300 flex items-center justify-center bg-gradient-to-br from-violet-500/20 to-purple-500/20">
+                <MonitorPlay className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-violet-400" />
+              </div>
+            )
           ) : isRoundtable && agendaItem.roundtables ? (
             /* Roundtable: Show all speakers from all roundtables */
             <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -146,6 +156,19 @@ const AgendaRow = ({ agendaItem, index }) => {
               <h3 className="text-lg sm:text-lg md:text-xl font-bold mb-1 text-white group-hover:text-violet-400 transition-colors duration-300">
                 {agendaItem.title}
               </h3>
+              {agendaItem.speakers && agendaItem.speakers.length > 0 && (
+                <div className="space-y-1 mb-2">
+                  {agendaItem.speakers.map((speaker, idx) => (
+                    <div key={idx} className="flex items-center gap-1.5 sm:gap-2">
+                      <Mic className="w-3 h-3 sm:w-3 sm:h-3 text-violet-400 flex-shrink-0" />
+                      <p className="text-violet-300 font-medium text-sm sm:text-base break-words">
+                        {speaker.name}
+                        {speaker.role && ` • ${speaker.role}`}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
               {agendaItem.description && (
                 <p className="text-gray-400 text-sm sm:text-sm mb-3 sm:mb-4 group-hover:text-gray-300 transition-colors duration-300">
                   {agendaItem.description}

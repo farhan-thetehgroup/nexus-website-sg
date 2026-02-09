@@ -135,9 +135,13 @@ export const PastSponsorSection = () => {
 const SponsorsGrid = ({ logos = [] }) => {
   return (
     <div className="relative py-4 w-full">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-items-center items-stretch">
+      <div className="flex flex-wrap justify-center gap-8 md:gap-10">
         {logos.map((logo, i) => (
-          <LogoCard key={`sponsor-${i}`} logo={logo} />
+          <div
+            key={`sponsor-${i}`}
+            className="w-full sm:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-5rem)/3)]">
+            <LogoCard logo={logo} />
+          </div>
         ))}
       </div>
     </div>

@@ -180,6 +180,21 @@ export const PARTNERS = [
     alt: "LMNTRIX",
     url: "https://lmntrix.com/",
   },
+  {
+    src: "/images/sponsors/Gigamon.webp",
+    alt: "Gigamon",
+    url: "https://www.gigamon.com/",
+  },
+  {
+    src: "/images/sponsors/Darktrace.webp",
+    alt: "Gigamon",
+    url: "https://www.darktrace.com/",
+  },
+  {
+    src: "/images/sponsors/ViettelCybersecurity.webp",
+    alt: "Viettel Cybersecurity",
+    url: "https://www.linkedin.com/company/viettel-cyber-security/",
+  }
 ];
 
 export const LOCATION_DATA = {
@@ -206,11 +221,11 @@ export const WHATSAPP_MESSAGE =
 export const SPEAKERS = [
   {
     id: 1,
-    fullName: "Veronica Tan",
-    jobTitle: "Director, Safer Cyberspace Division",
-    company: "Cyber Security Agency of Singapore (CSA)",
-    image: "/images/speakers/Veronica-Tan.webp",
-    isExclusive: true,
+    fullName: "Scott Flower",
+    jobTitle: "Founder",
+    company: "CI-ISAC",
+    image: "/images/speakers/Scott-Flower.webp",
+    isExclusive: false,
   },
   {
     id: 2,
@@ -218,7 +233,7 @@ export const SPEAKERS = [
     jobTitle: "CISO, Risk & Governance",
     company: "Standard Chartered",
     image: "/images/speakers/Sourabh-haldar.jfif",
-    isExclusive: true,
+    isExclusive: false,
   },
   {
     id: 3,
@@ -226,18 +241,10 @@ export const SPEAKERS = [
     jobTitle: "SVP - CISO APAC Risk & Compliance Head",
     company: "CitiBank",
     image: "/images/speakers/Sarani-De.webp",
-    isExclusive: true,
+    isExclusive: false,
   },
   {
     id: 4,
-    fullName: "Anna Cheong",
-    jobTitle: "Director, Technology & Transformation",
-    company: "Deloitte",
-    image: "/images/speakers/Anna-Cheong.png",
-    isExclusive: true,
-  },
-  {
-    id: 5,
     fullName: "Gek Peng Tay",
     jobTitle: "RSAF Chief Data Officer",
     company: "Republic of Singapore Air Force",
@@ -245,7 +252,7 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 6,
+    id: 5,
     fullName: "Anders Nordhal",
     jobTitle: "Head of IT",
     company: "Berge Bulk",
@@ -253,26 +260,58 @@ export const SPEAKERS = [
     isExclusive: false,
   },
   {
-    id: 7,
+    id: 6,
     fullName: "Sandro Pelaez",
     jobTitle: "Director of Product Management",
     company: "Aspire",
     image: "/images/speakers/Sandro-Pelaez.webp",
     isExclusive: false,
   },
+  {
+    id: 7,
+    fullName: "Daniel Oscar Baskoro",
+    jobTitle: "Chief Project Officer ",
+    company: "Nusantara Capital Authority ",
+    image: "/images/speakers/Daniel-Oscar-Baskoro.webp",
+    isExclusive: false,
+  },
+  {
+    id: 8,
+    fullName: "Scott Flower",
+    jobTitle: "Founder",
+    company: "CI-ISAC",
+    image: "/images/speakers/Scott-Flower.webp",
+    isExclusive: false,
+  },
+  {
+    id: 9,
+    fullName: "Arnel Distor",
+    jobTitle: "CITO",
+    company: "Philippines Government Hospital PH",
+    image: "/images/speakers/Arnel-Distor.webp",
+    isExclusive: false,
+  },
+  {
+    id: 10,
+    fullName: "Kiat How Tan",
+    jobTitle: "Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health",
+    company: "Singapore Government",
+    image: "/images/speakers/tan-kiat-how.jpg",
+    isExclusive: false,
+  }
 ];
 
 export const AGENDA_DAY_1 = [
   {
     id: 1,
-    time: "08:00 AM",
+    time: "08:30 AM",
     title: "Registration",
     type: "registration",
     description: "Registration & PM Coffee Break",
   },
   {
     id: 2,
-    time: "08:50 AM",
+    time: "09:00 AM",
     title: "Orientation",
     moderator: {
       name: "Jeffrey Teh",
@@ -303,17 +342,17 @@ export const AGENDA_DAY_1 = [
   // },
   {
     id: 3,
-    time: "09:00 AM",
+    time: "09:20 AM",
     title: "Keynote",
     type: "session",
     speakers: [
       {
-        name: "Veronica Tan",
-        image: "/images/speakers/Veronica-Tan.webp",
-        role: "Director, Safer Cyberspace Division - Cyber Security Agency of Singapore (CSA)",
+        name: "Tan Kiat How",
+        image: "/images/speakers/tan-kiat-how.jpg",
+        role: "Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health - Singapore Government",
       }
     ],
-    description: "Collective Cyber Defense: The Future of Shared Threat Intelligence in Singapore",
+    description: "",
   },
   {
     id: 4,
@@ -330,12 +369,6 @@ export const AGENDA_DAY_1 = [
     description: "Accountability in AI for Business: Governance and Ethics - Standard Chatered",
   },
   {
-    id: 5,
-    time: "10:00 AM - 04:00 PM",
-    title: "One on One Business Meetings",
-    type: "meeting",
-  },
-  {
     id: 6,
     time: "10:00 AM",
     title: "AI In Risk Detection & Management",
@@ -350,6 +383,13 @@ export const AGENDA_DAY_1 = [
     description: "AI in the Digital Battlefield: Enterprise Security, Risk, and Resilience",
   },
   {
+    id: 5,
+    time: "10:00 AM - 04:00 PM",
+    title: "One on One Business Meetings",
+    type: "meeting",
+  },
+  
+  {
     id: 8,
     time: "10:30 AM",
     title: "Coffee Break",
@@ -357,8 +397,8 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 7,
-    time: "10:50 AM",
-    title: "AI Innovation",
+    time: "10:45 AM",
+    title: "AI Innovation & Governance",
     type: "session",
     speakers: [
       {
@@ -371,7 +411,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 9,
-    time: "11:20 AM",
+    time: "11:15 AM",
     title: "AI in Productive Deployment",
     type: "session",
     speakers: [
@@ -385,7 +425,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 10,
-    time: "11:50 PM",
+    time: "11:45 AM",
     title: "IT/OT with AI",
     speakers: [
       {
@@ -399,30 +439,40 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 11,
-    time: "12:20 PM",
-    title: "Enterprise Tech for Cloud & Data Management",
+    time: "12:15 PM",
+    title: "ASEAN Thought Leadership Panel",
     speakers: [
       {
-        name: "Anna Cheong",
-        image: "/images/speakers/Anna-Cheong.png",
-        role: "Director, Technology & Transformation - Deloitte"
+        name: "Daniel Oscar Baskoro",
+        image: "/images/speakers/Daniel-Oscar-Baskoro.webp",
+        role: "Chief Project Officer - Nusantara Capital Authority"
+      },
+      {
+        name: "Scott Flower",
+        image: "/images/speakers/Scott-Flower.webp",
+        role: "Founder - CI-ISAC"
+      },
+      {
+        name: "Arnel Distor",
+        image: "/images/speakers/Arnel-Distor.webp",
+        role: "CITO - Philippines Government Hospital PH"
       }
     ],
-    description: "Scaling Enterprise Technology in 2026: Cloud and Data ",
+    description: "AI at ASEAN Scale: Balancing Innovation, Trust, and Systemic Risk in Safe AI Deployment.",
     type: "Session",
   },
   {
     id: 12,
-    time: "12:30 PM",
+    time: "01:00 PM",
     title: "Break Lunch",
     type: "break",
   },
   {
     id: 13,
-    time: "01:00 PM",
+    time: "02:00 PM",
     title: "Demo Sessions",
     type: "demo",
-    description: "Interactive demonstrations showcasing the latest innovations and technologies",
+    description: "Innovation & Cybersecurity",
     demoSessions: [
       {
         title: "Track 1 - Innovation",
@@ -434,27 +484,48 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 14,
-    time: "01:30 PM",
-    title: "SOC and MDR / From AI Strategy to Scaled Products: Building Trust, Growth, and Resilience in FinTech Platforms",
-    type: "session",
+    time: "02:00 PM",
+    title: "Innovation",
+    type: "demo",
+    description: "Email Security - Securing the Enterprise Inbox: Managing AI-Driven Email Risk at Scale",
+    image: "/images/sponsors/ProofPoint.webp",
+    speakers: [
+    ]
+  },
+  {
+    id: 15,
+    time: "02:30 PM",
+    title: "Cybersecurity ",
+    type: "demo",
+    description: "Active Defense",
+    image: "/images/sponsors/LMNTRX.webp",
+    speakers: [
+    ]
   },
 
   {
     id: 15,
-    time: "02:00 PM",
-    title: "Threat",
-    type: "session",
+    time: "03:00 PM",
+    title: "Cybersecurity",
+    type: "demo",
+    description: "Reinventing Malware Defense: Antivirus Protection in the Age of AI",
+    image: "/images/sponsors/Bitdefender.webp",
+    speakers: [
+    ]
   },
   {
     id: 16,
     time: "03:30 PM",
-    title: "ASEAN Thought Leadership Panel",
-    description: "AI at ASEAN Scale: Balancing Innovation, Trust, and Systemic Risk in Safe AI Deployment.",
-    type: "session",
+    title: "Innovation",
+    description: "Protecting Hybrid Enterprises: Cloud, Endpoints, and AI Workloads",
+    type: "demo",
+    image: "/images/sponsors/Trend-micro.webp",
+    speakers: [
+    ]
   },
   {
     id: 17,
-    time: "04:30 PM",
+    time: "04:00 PM",
     title: "Break Time & End of Event",
     type: "break",
   }
