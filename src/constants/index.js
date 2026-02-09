@@ -285,14 +285,6 @@ export const SPEAKERS = [
   },
   {
     id: 9,
-    fullName: "Scott Flower",
-    jobTitle: "Founder",
-    company: "CI-ISAC",
-    image: "/images/speakers/Scott-Flower.webp",
-    isExclusive: false,
-  },
-  {
-    id: 10,
     fullName: "Arnel Distor",
     jobTitle: "CITO",
     company: "Philippines Government Hospital PH",
