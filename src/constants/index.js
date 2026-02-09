@@ -181,9 +181,9 @@ export const PARTNERS = [
     url: "https://lmntrix.com/",
   },
   {
-    src: "/images/sponsors/Gigamon.webp",
-    alt: "Gigamon",
-    url: "https://www.gigamon.com/",
+    src: "/images/sponsors/Bitdefender.webp",
+    alt: "Bitdefender",
+    url: "https://www.bitdefender.com/",
   },
   {
     src: "/images/sponsors/Darktrace.webp",
