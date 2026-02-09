@@ -232,7 +232,7 @@ export const SPEAKERS = [
     fullName: "Sourabh Haldar",
     jobTitle: "CISO, Risk & Governance",
     company: "Standard Chartered",
-    image: "/images/speakers/Sourabh-haldar.jfif",
+    image: "/images/speakers/Sourabh-Haldar.webp",
     isExclusive: false,
   },
   {
@@ -296,7 +296,7 @@ export const SPEAKERS = [
     fullName: "Kiat How Tan",
     jobTitle: "Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health",
     company: "Singapore Government",
-    image: "/images/speakers/tan-kiat-how.jpg",
+    image: "/images/speakers/Tan-Kiat-How.webp",
     isExclusive: false,
   }
 ];
@@ -348,7 +348,7 @@ export const AGENDA_DAY_1 = [
     speakers: [
       {
         name: "Tan Kiat How",
-        image: "/images/speakers/tan-kiat-how.jpg",
+        image: "/images/speakers/Tan-Kiat-How.webp",
         role: "Senior Minister of State, Ministry of Digital Development and Information & Ministry of Health - Singapore Government",
       }
     ],
@@ -362,7 +362,7 @@ export const AGENDA_DAY_1 = [
     speakers: [
       {
         name: "Sourabh Haldar",
-        image: "/images/speakers/Sourabh-haldar.jfif",
+        image: "/images/speakers/Sourabh-Haldar.webp",
         role: "Senior Director, Cyber and Tech Risk",
       }
     ],
@@ -485,6 +485,15 @@ export const AGENDA_DAY_1 = [
   {
     id: 14,
     time: "02:00 PM",
+    title: "Presentation",
+    type: "demo",
+    image: "/images/sponsors/ProofPoint.webp",
+    speakers: [
+    ]
+  },
+  {
+    id: 14,
+    time: "02:30 PM",
     title: "Innovation",
     type: "demo",
     description: "Email Security - Securing the Enterprise Inbox: Managing AI-Driven Email Risk at Scale",
@@ -494,7 +503,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 15,
-    time: "02:30 PM",
+    time: "03:00 PM",
     title: "Cybersecurity ",
     type: "demo",
     description: "Active Defense",
@@ -505,7 +514,7 @@ export const AGENDA_DAY_1 = [
 
   {
     id: 15,
-    time: "03:00 PM",
+    time: "03:30 PM",
     title: "Cybersecurity",
     type: "demo",
     description: "Reinventing Malware Defense: Antivirus Protection in the Age of AI",
@@ -515,7 +524,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 16,
-    time: "03:30 PM",
+    time: "04:00 PM",
     title: "Innovation",
     description: "Protecting Hybrid Enterprises: Cloud, Endpoints, and AI Workloads",
     type: "demo",
@@ -525,7 +534,7 @@ export const AGENDA_DAY_1 = [
   },
   {
     id: 17,
-    time: "04:00 PM",
+    time: "04:30 PM",
     title: "Break Time & End of Event",
     type: "break",
   }
